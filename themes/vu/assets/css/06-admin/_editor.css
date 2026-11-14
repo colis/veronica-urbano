@@ -1,0 +1,25 @@
+/* ==========================================================================
+EDITOR OVERRIDE STYLES
+========================================================================== */
+
+:root {
+	--wp--style--block-gap: spacing(block-gap);
+}
+
+.edit-post-visual-editor__post-title-wrapper,
+.block-editor-block-list__layout.is-root-container {
+	padding: 0 grid(gutter);
+}
+
+.edit-post-visual-editor__post-title-wrapper {
+	margin-bottom: spacing(24);
+}
+
+.editor-post-title__input {
+	@mixin heading 2;
+}
+
+.editor-post-title__input,
+.block-editor-block-list__layout.is-root-container {
+	color: color(foreground--default);
+}

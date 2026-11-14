@@ -1,0 +1,99 @@
+/* ==========================================================================
+GRID UTILITY CLASSES
+========================================================================== */
+
+/* Posts */
+
+.grid-posts {
+	@mixin grid-columns 1;
+
+	@media (--sm-up) {
+		@mixin grid-columns 2;
+	}
+
+	&[data-layout="list"] {
+		@mixin grid-columns 1;
+	}
+}
+
+.grid-posts__1 {
+	@mixin grid-columns 1;
+}
+
+.grid-posts__3,
+.grid-posts__4,
+.grid-posts__5,
+.grid-posts__6 {
+	@media (--md-up) {
+		@mixin grid-columns 3;
+	}
+}
+
+.grid-posts__4,
+.grid-posts__5,
+.grid-posts__6 {
+	@media (--lg-up) {
+		@mixin grid-columns 4;
+	}
+}
+
+.grid-posts__5 {
+	@media (--xl-up) {
+		@mixin grid-columns 5;
+	}
+}
+
+.grid-posts__6 {
+	@media (--xl-up) {
+		@mixin grid-columns 6;
+	}
+}
+
+/* Column */
+
+.grid-col {
+	display: flex;
+	container-type: inline-size;
+}
+
+/* Gap */
+
+.grid-gap-0 {
+	gap: 0;
+}
+
+.grid-gap-8 {
+	gap: spacing(8);
+}
+
+.grid-gap-16 {
+	gap: spacing(16);
+}
+
+.grid-gap-24 {
+	gap: spacing(24);
+}
+
+.grid-gap-32 {
+	gap: spacing(24);
+
+	@media (--md-up) {
+		gap: spacing(32);
+	}
+}
+
+.grid-gap-40 {
+	gap: spacing(24);
+
+	@media (--md-up) {
+		gap: spacing(40);
+	}
+}
+
+.grid-gap-48 {
+	gap: spacing(24);
+
+	@media (--md-up) {
+		gap: spacing(48);
+	}
+}

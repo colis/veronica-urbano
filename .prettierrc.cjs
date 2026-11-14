@@ -1,0 +1,21 @@
+/** @type {import('prettier').Options} */
+module.exports = {
+	useTabs: true,
+	tabWidth: 4,
+	printWidth: 80,
+	singleQuote: true,
+	trailingComma: 'es5',
+	bracketSameLine: false,
+	bracketSpacing: true,
+	semi: true,
+	arrowParens: 'always',
+	overrides: [
+		{
+			files: ['**/*.css'],
+			options: {
+				singleQuote: false,
+			},
+		},
+	],
+	plugins: ['prettier-plugin-css-order', 'prettier-plugin-organize-imports'],
+};

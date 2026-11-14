@@ -1,0 +1,57 @@
+/* ==========================================================================
+COLOR UTILITY CLASSES
+========================================================================== */
+
+/* Text Colors */
+
+.has-text-color {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	li,
+	p,
+	a:where(:not(.wp-element-button)) {
+		color: inherit;
+	}
+}
+
+.has-aubergine-color {
+	color: color(brand--aubergine);
+}
+
+.has-brand-raspberry-color {
+	color: color(brand--raspberry);
+}
+
+.has-white-color {
+	color: color(white);
+
+	a:where(:not(.wp-element-button)) {
+		&:hover,
+		&:focus-visible,
+		&:active {
+			color: color(white);
+		}
+	}
+}
+
+/* Background Colors */
+
+.has-background {
+	position: relative;
+	padding: spacing(32);
+}
+
+.has-brand-aubergine-background-color {
+	background-color: color(brand--aubergine);
+	input:focus-visible {
+		outline-color: color(white);
+	}
+}
+
+.has-brand-raspberry-background-color {
+	background-color: color(brand--raspberry);
+}

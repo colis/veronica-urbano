@@ -1,0 +1,59 @@
+/* ==========================================================================
+ACCORDION
+========================================================================== */
+
+.c-accordion {
+	border-bottom: spacing(1) solid color(base--gray--400);
+
+	.c-accordion__button {
+		@mixin reset-button;
+		display: flex;
+		position: relative;
+		align-items: center;
+		gap: spacing(8);
+		width: 100%;
+		color: color(base--gray--400);
+		text-align: left;
+
+		&:focus-visible {
+			@mixin focus-outline;
+			@mixin outline-offset;
+		}
+
+		/* Chevron icon */
+		.svg-icon.chevron-right {
+			@mixin transition transform, calc(transition(duration) * 2);
+			flex-shrink: 0;
+			transform: rotate(90deg);
+			margin-left: auto;
+			color: color(brand--aubergine);
+		}
+
+		/* Expanded state */
+		&[aria-expanded="true"] {
+			.svg-icon.chevron-right {
+				transform: rotate(-90deg);
+			}
+
+			~ .c-accordion__content-wrapper {
+				grid-template-rows: 1fr;
+				padding-bottom: spacing(48);
+			}
+		}
+	}
+
+	.c-accordion__content-wrapper {
+		@mixin transition all, calc(transition(duration) * 2);
+		display: grid;
+		grid-template-rows: 0fr;
+		padding-bottom: 0;
+	}
+
+	.c-accordion__content {
+		overflow: hidden;
+
+		&[aria-hidden="true"] {
+			display: none;
+		}
+	}
+}

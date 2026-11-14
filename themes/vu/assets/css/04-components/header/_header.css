@@ -1,0 +1,243 @@
+/* ==========================================================================
+HEADER
+========================================================================== */
+
+.c-site-header {
+	--bg-color: color(white);
+	--menu-spacing: spacing(16);
+	--animation-duration: calc(transition(duration) * 2);
+	--mobile-drawer-margin-top: spacing(48);
+
+	display: grid;
+	top: 0;
+	left: 0;
+	grid-template-rows: repeat(2, auto);
+	z-index: 1000;
+	background-color: var(--bg-color);
+	width: 100%;
+
+	@mixin mobile-menu-up {
+		position: sticky;
+	}
+
+	/* Sticky Header (mobile devices only) */
+	&.is-sticky {
+		.c-site-header__content {
+			@mixin mobile-menu-down {
+				position: fixed;
+				top: 0;
+				right: 0;
+				left: 0;
+			}
+		}
+
+		/* Sticky Header Banner (mobile devices only) */
+		&:has(.c-header-banner.is-sticky) .c-site-header__content {
+			@mixin mobile-menu-down {
+				top: var(--header-banner-height);
+			}
+		}
+
+		/* Prevent page content movement when Header is sticky */
+		.c-site-header__top.mobile {
+			@mixin mobile-menu-down {
+				margin-top: var(--header-content-height);
+			}
+		}
+	}
+
+	.container {
+		display: grid;
+		grid-auto-flow: column;
+		justify-content: space-between;
+		gap: var(--menu-spacing);
+	}
+
+	a:where(:not(.wp-element-button, .vu-button)):not(:hover):not(:focus):not(
+			:active
+		) {
+		text-decoration: none;
+	}
+}
+
+.c-site-header__content {
+	@mixin transition transform, var(--animation-duration);
+	position: relative;
+	z-index: 2;
+	background-color: var(--bg-color);
+
+	/* Disable transform on larger devices */
+	@mixin mobile-menu-up {
+		transform: translateY(0) !important;
+	}
+
+	.container {
+		grid-template-columns: auto 1fr auto;
+		align-items: center;
+		gap: 0;
+		height: var(--header-content-height);
+
+		@mixin mobile-menu-up {
+			align-items: unset;
+			gap: var(--menu-spacing);
+		}
+	}
+}
+
+.c-site-header__nav,
+.c-site-header__nav--inner {
+	display: flex;
+	width: 100%;
+}
+
+.c-site-header__nav {
+	@mixin mobile-menu-down {
+		display: none;
+		position: absolute;
+		top: var(--header-content-height);
+		left: 0;
+		flex-direction: column;
+		gap: spacing(40);
+		background-color: color(white);
+		padding: 0 grid(gutter) grid(gutter);
+		height: calc(
+			100dvh - var(--wp-admin-bar) - var(--header-content-height)
+		);
+	}
+}
+
+.c-site-header__nav--inner {
+	@mixin mobile-menu-down {
+		flex-direction: column;
+		gap: spacing(40);
+		height: 100%;
+		overflow-x: clip;
+		overflow-y: auto;
+	}
+
+	.c-site-header__rewards {
+		margin-top: var(--mobile-drawer-margin-top);
+
+		@mixin mobile-menu-up {
+			display: none !important;
+		}
+	}
+}
+
+/* Rewards */
+.c-site-header__rewards {
+	display: none;
+	align-items: center;
+	align-self: flex-start;
+	gap: spacing(6);
+	margin-right: calc(var(--account-spacing, 0) / 2);
+	border-radius: spacing(3);
+	background-color: color(base--teal--100);
+	padding: spacing(4) spacing(8);
+	color: color(brand--raspberry);
+	font-weight: font-weight(bold);
+	font-size: rem(11px);
+	line-height: 1;
+	letter-spacing: 0;
+
+	&:not(.hidden) {
+		display: flex;
+	}
+
+	&:hover,
+	&:focus-visible {
+		color: color(brand--raspberry);
+		text-decoration: none;
+	}
+}
+
+/* ==========================================================================
+WP Admin Bar - allow for height of bar for logged in users
+========================================================================== */
+
+body.admin-bar {
+	.c-site-header {
+		@mixin mobile-menu-up {
+			top: var(--wp-admin-bar);
+		}
+
+		/* Sticky Header */
+		&.is-sticky {
+			.c-site-header__content {
+				@mixin mobile-menu-down {
+					top: var(--wp-admin-bar);
+				}
+			}
+
+			/* Sticky Header Banner */
+			&:has(.c-header-banner.is-sticky) .c-site-header__content {
+				@mixin mobile-menu-down {
+					top: calc(
+						var(--wp-admin-bar) + var(--header-banner-height)
+					);
+					@mixin transition single-arg(transform, top);
+				}
+			}
+		}
+	}
+}
+
+/* ==========================================================================
+Mobile Drawer Closed
+========================================================================== */
+
+/* Animate Out - hide mobile drawer */
+body.mobile-drawer-closed {
+	.c-site-header__nav {
+		@mixin mobile-menu-down {
+			animation: fadeOut var(--animation-duration) 0ms both;
+
+			.c-site-header__nav--inner {
+				animation:
+					fadeOut var(--animation-duration) 0ms both,
+					headerNavMobileSlideUp var(--animation-duration) 0ms both;
+			}
+		}
+	}
+}
+
+/* ==========================================================================
+Mobile Drawer Active
+========================================================================== */
+
+/* Lock the page scroll when mobile drawer or a sub menu is active */
+html:has(
+	.mobile-drawer-active,
+	#header-primary-menu li.menu-item-has-children.active
+) {
+	@mixin lock-page;
+}
+
+body.mobile-drawer-active {
+	.c-site-header {
+		position: fixed;
+		top: var(--wp-admin-bar);
+
+		/* Sticky Header and Header Banner */
+		&.is-sticky {
+			&:has(.c-header-banner.is-sticky) .c-site-header__content {
+				@mixin mobile-menu-down {
+					top: var(--wp-admin-bar);
+				}
+			}
+		}
+	}
+}
+
+/* Animate In - output mobile drawer */
+.c-site-header__nav.active {
+	@mixin mobile-menu-down {
+		display: flex;
+
+		.c-site-header__nav--inner {
+			animation:
+				fadeIn var(--animation-duration) 0ms both,
+				headerNavMobileSlideDown var(--animation-duration) 0ms both;
+		}
+	}
+}

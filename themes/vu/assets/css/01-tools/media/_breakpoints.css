@@ -1,0 +1,40 @@
+/* ==========================================================================
+MEDIA QUERIES
+
+Example usage:
+
+.my-class {
+	padding: 1rem;
+
+	@media (--sm-up) {
+		padding: 2rem;
+	}
+
+	@media (--md-up) {
+		padding: 3rem;
+	}
+
+	@media (--lg-up) {
+		padding: 4rem;
+	}
+
+	@media (--xl-up) {
+		padding: 5rem;
+	}
+}
+========================================================================== */
+
+@custom-media --sm-up (min-width: 30rem); /* (>= 480px) */
+@custom-media --sm-down (max-width: 29.9375rem); /* (<= 479px) */
+
+@custom-media --md-up (min-width: 48rem); /* (>= 768px) */
+@custom-media --md-down (max-width: 47.9375rem); /* (<= 767px) */
+
+@custom-media --gutenberg-up (min-width: 782px); /* (>= 782px) */
+@custom-media --gutenberg-down (max-width: 781px); /* (<= 781px) */
+
+@custom-media --lg-up (min-width: 64rem); /* (>= 1024px) */
+@custom-media --lg-down (max-width: 63.9375rem); /* (<= 1023px) */
+
+@custom-media --xl-up (min-width: 90rem); /* (>= 1440px) */
+@custom-media --xl-down (max-width: 89.9375rem); /* (<= 1439px) */

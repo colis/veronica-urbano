@@ -1,0 +1,94 @@
+/* ==========================================================================
+TYPOGRAPHY UTILITY CLASSES
+
+Example usage:
+
+<p class="eyebrow">Eyebrow Text</p>
+
+<p class="eyebrow-caps">Eyebrow (Caps) Text</p>
+
+<p class="ribbon">Ribbon Text</p>
+
+<p class="tag">Tag Text</p>
+
+<p class="has-11-font-size">11px Text</p>
+
+<p><span class="no-wrap">No Wrap</span> Text</p>
+
+========================================================================== */
+
+:root {
+	.eyebrow,
+	.is-style-eyebrow,
+	p.is-style-eyebrow {
+		@mixin eyebrow;
+
+		&.has-white-color {
+			@mixin eyebrow-light;
+		}
+	}
+
+	.eyebrow-caps,
+	.is-style-eyebrow-caps {
+		@mixin eyebrow-caps;
+
+		&.has-white-color {
+			@mixin eyebrow-caps-light;
+		}
+
+		&.has-11-font-size {
+			font-weight: typography(eyebrow-caps--font-weight);
+			letter-spacing: typography(eyebrow-caps--letter-spacing);
+		}
+	}
+
+	.ribbon,
+	.is-style-ribbon,
+	p.is-style-ribbon {
+		@mixin ribbon;
+
+		&.has-brand-raspberry-color {
+			@mixin ribbon-light;
+		}
+	}
+
+	.tag,
+	.is-style-tag,
+	p.is-style-tag {
+		@mixin tag;
+	}
+
+	/* Font Sizes */
+
+	.has-11-font-size {
+		@mixin body-xs;
+	}
+
+	.has-12-font-size {
+		@mixin body-sm;
+	}
+
+	.has-14-font-size {
+		@mixin body-md;
+	}
+
+	.has-16-font-size {
+		@mixin body-lg;
+	}
+
+	.has-48-font-size,
+	.has-heading-48-font-size {
+		@mixin heading md;
+	}
+
+	.has-80-font-size,
+	.has-heading-80-font-size {
+		@mixin heading xl;
+	}
+}
+
+/* No Wrap Text */
+
+.no-wrap {
+	white-space: nowrap;
+}

@@ -1,0 +1,12 @@
+/* ==========================================================================
+BASIC FOOTER (for Basic Template)
+========================================================================== */
+
+.c-site-footer--basic {
+	margin: auto 0 0;
+	text-align: center;
+
+	.c-site-footer__copyright {
+		margin-bottom: spacing(24);
+	}
+}

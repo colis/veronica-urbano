@@ -1,0 +1,26 @@
+/* ==========================================================================
+LOCK PAGE
+
+Example usage:
+
+html {
+	@mixin lock-page;
+}
+
+========================================================================== */
+
+@define-mixin lock-page {
+	&,
+	body {
+		overflow: hidden;
+	}
+
+	& {
+		margin-top: var(--header-total-height) !important;
+	}
+
+	.c-site-header {
+		position: fixed;
+		top: var(--wp-admin-bar);
+	}
+}

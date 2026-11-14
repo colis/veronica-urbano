@@ -1,0 +1,41 @@
+/* ==========================================================================
+POST TEMPLATE BLOCK
+========================================================================== */
+
+.wp-block-post-template {
+	&.is-layout-flow.is-layout-flow {
+		display: flex;
+		flex-direction: column;
+		gap: spacing(24);
+
+		@media (--md-up) {
+			gap: spacing(48);
+		}
+
+		.c-archive-main__date {
+			@mixin heading 2;
+			margin-top: spacing(8);
+			margin-bottom: spacing(24);
+
+			@media (--md-up) {
+				margin-bottom: spacing(48);
+			}
+		}
+	}
+
+	&.is-layout-grid.is-layout-grid {
+		gap: spacing(24);
+
+		&.columns-3 {
+			grid-template-columns: 1fr;
+
+			@media (--md-up) {
+				grid-template-columns: repeat(2, 1fr);
+			}
+
+			@media (--xl-up) {
+				grid-template-columns: repeat(3, 1fr);
+			}
+		}
+	}
+}

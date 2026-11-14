@@ -1,0 +1,49 @@
+/* =======================================================================================
+TRANSITION
+
+Example usage:
+
+Transition all CSS properties with defaults:
+------------------------------------------------------------------------------------------
+.my-class {
+	@mixin transition;
+}
+
+Transition a single CSS property with defaults:
+------------------------------------------------------------------------------------------
+.my-class {
+	@mixin transition background-color;
+}
+
+Transition a single CSS property with custom duration and defaults:
+------------------------------------------------------------------------------------------
+.my-class {
+	@mixin transition background-color, calc(transition(duration)*2);
+}
+
+Transition a single CSS property with custom duration and function:
+------------------------------------------------------------------------------------------
+.my-class {
+	@mixin transition background-color, calc(transition(duration)*2), ease-in-out;
+}
+
+Transition a single CSS property with custom duration, default function and custom delay:
+------------------------------------------------------------------------------------------
+.my-class {
+	@mixin transition background-color, calc(transition(duration)*2), transition(function), 500ms;
+}
+
+Transition multiple CSS properties with defaults:
+------------------------------------------------------------------------------------------
+.my-class {
+	@mixin transition single-arg(background-color, color);
+}
+======================================================================================= */
+
+@define-mixin transition $property: all, $duration: transition(duration),
+	$easing: transition(function), $delay: 0s {
+	transition-delay: $delay;
+	transition-duration: $duration;
+	transition-property: $property;
+	transition-timing-function: $easing;
+}

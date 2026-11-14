@@ -1,0 +1,274 @@
+/* ==========================================================================
+TYPOGRAPHY
+
+Example usage:
+
+.my-class {
+	@mixin screen-reader-text;
+}
+
+.my-class {
+	@mixin eyebrow;
+}
+
+.my-class {
+	@mixin eyebrow;
+	@mixin eyebrow-light;
+}
+
+.my-class {
+	@mixin eyebrow-caps;
+}
+
+.my-class {
+	@mixin ribbon;
+}
+
+.my-class {
+	@mixin tag;
+}
+
+.my-class.tag-bold-danger {
+	@mixin tag;
+}
+
+.my-class.tag-bold-danger {
+	@mixin tag;
+	@mixin tag-sm;
+}
+
+.my-class.tag-subtle-success {
+	@mixin tag;
+}
+
+.my-class.tag-subtle-success {
+	@mixin tag;
+	@mixin tag-sm;
+}
+
+.my-class {
+	@mixin body;
+}
+
+.my-class {
+	@mixin body-xs;
+}
+
+.my-class {
+	@mixin heading 2;
+}
+
+========================================================================== */
+
+/* Screen Reader Text */
+@define-mixin screen-reader-text {
+	position: absolute !important;
+	clip-path: inset(50%);
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	overflow-wrap: normal !important;
+}
+
+/* Eyebrow */
+@define-mixin eyebrow {
+	margin-bottom: spacing(10);
+	color: color(brand--aubergine);
+	font-weight: typography(eyebrow--font-weight);
+	font-size: typography(eyebrow--font-size);
+	font-family: typography(eyebrow--font-family);
+	line-height: typography(eyebrow--line-height);
+	letter-spacing: typography(eyebrow--letter-spacing);
+
+	@media (--sm-up) {
+		margin-bottom: spacing(12);
+	}
+
+	@media (--md-up) {
+		margin-bottom: spacing(16);
+	}
+}
+
+@define-mixin eyebrow-light {
+	color: color(white);
+}
+
+/* Eyebrow (Caps) */
+@define-mixin eyebrow-caps {
+	color: color(text--primary);
+	font-weight: typography(eyebrow-caps--font-weight);
+	font-size: typography(eyebrow-caps--font-size);
+	font-family: typography(eyebrow-caps--font-family);
+	line-height: typography(eyebrow-caps--line-height);
+	letter-spacing: typography(eyebrow-caps--letter-spacing);
+	text-transform: typography(eyebrow-caps--text-transform);
+}
+
+@define-mixin eyebrow-caps-light {
+	color: color(white);
+}
+
+/* Ribbon */
+@define-mixin ribbon {
+	display: inline-block;
+	margin-bottom: spacing(16);
+	border-radius: radius(sm);
+	background-color: color(background--info--emphasis);
+	padding: rem(5px) spacing(16) spacing(4);
+	color: color(foreground--on-emphasis);
+	font-weight: typography(ribbon--font-weight);
+	font-size: typography(ribbon--font-size);
+	line-height: typography(ribbon--line-height);
+	letter-spacing: typography(ribbon--letter-spacing);
+}
+
+@define-mixin ribbon-light {
+	background-color: color(background--default);
+	color: color(foreground--info) !important;
+}
+
+/* Tag */
+@define-mixin tag {
+	display: inline-block;
+	margin-bottom: spacing(16);
+	border-radius: radius(full);
+	background-color: color(accent--fill);
+	padding: spacing(2) spacing(6) rem(2.35px);
+	color: color(white);
+	font-weight: typography(tag--font-weight);
+	font-size: typography(tag--font-size);
+	line-height: typography(tag--line-height);
+	font-family: typography(tag--font-family);
+	letter-spacing: typography(tag--letter-spacing);
+	text-transform: uppercase;
+
+	/* Size: Small */
+	&.tag-sm {
+		@mixin tag-sm;
+	}
+
+	/* Emphasis: Bold */
+
+	&.tag-bold-neutral {
+		background-color: color(background--neutral--emphasis);
+	}
+
+	&.tag-bold-accent {
+		background-color: color(background--accent--emphasis);
+	}
+
+	&.tag-bold-success {
+		background-color: color(background--success--emphasis);
+	}
+
+	&.tag-bold-danger {
+		background-color: color(background--danger--emphasis);
+	}
+
+	&.tag-bold-warning {
+		background-color: color(background--warning--emphasis);
+	}
+
+	&.tag-bold-highlight {
+		background-color: color(background--highlight--emphasis);
+	}
+
+	/* Emphasis: Subtle */
+
+	&.tag-subtle-neutral {
+		background-color: color(background--neutral--muted);
+		color: color(foreground--neutral);
+	}
+
+	&.tag-subtle-info {
+		background-color: color(background--info--muted);
+		color: color(foreground--info);
+	}
+
+	&.tag-subtle-accent {
+		background-color: color(background--accent--muted);
+		color: color(foreground--accent);
+	}
+
+	&.tag-subtle-success {
+		background-color: color(background--success--muted);
+		color: color(foreground--success);
+	}
+
+	&.tag-subtle-danger {
+		background-color: color(background--danger--muted);
+		color: color(foreground--danger);
+	}
+
+	&.tag-subtle-warning {
+		background-color: color(background--warning--muted);
+		color: color(foreground--warning);
+	}
+
+	&.tag-subtle-highlight {
+		background-color: color(background--highlight--muted);
+		color: color(foreground--highlight);
+	}
+}
+
+@define-mixin tag-sm {
+	@mixin body-xs;
+	padding-right: spacing(4);
+	padding-left: spacing(4);
+}
+
+/* Body */
+@define-mixin body {
+	font-weight: typography(body--font-weight);
+	font-size: typography(body--font-size);
+	line-height: typography(body--line-height);
+	letter-spacing: typography(body--letter-spacing);
+}
+
+@define-mixin body-xl {
+	font-weight: typography(body-xl--font-weight);
+	font-size: typography(body-xl--font-size);
+	line-height: typography(body-xl--line-height);
+	letter-spacing: typography(body-xl--letter-spacing);
+}
+
+@define-mixin body-lg {
+	font-weight: typography(body-lg--font-weight);
+	font-size: typography(body-lg--font-size);
+	line-height: typography(body-lg--line-height);
+	letter-spacing: typography(body-lg--letter-spacing);
+}
+
+@define-mixin body-md {
+	font-weight: typography(body-md--font-weight);
+	font-size: typography(body-md--font-size);
+	line-height: typography(body-md--line-height);
+	letter-spacing: typography(body-md--letter-spacing);
+}
+
+@define-mixin body-sm {
+	font-weight: typography(body-sm--font-weight);
+	font-size: typography(body-sm--font-size);
+	line-height: typography(body-sm--line-height);
+	letter-spacing: typography(body-sm--letter-spacing);
+}
+
+@define-mixin body-xs {
+	font-weight: typography(body-xs--font-weight);
+	font-size: typography(body-xs--font-size);
+	line-height: typography(body-xs--line-height);
+	letter-spacing: typography(body-xs--letter-spacing);
+}
+
+/* Heading */
+@define-mixin heading $level: 1 {
+	font-family: typography(heading-1--font-family);
+	font-weight: heading($level, font-weight);
+	font-size: heading($level, font-size);
+	line-height: heading($level, line-height);
+	letter-spacing: heading($level, letter-spacing);
+	text-transform: uppercase;
+}

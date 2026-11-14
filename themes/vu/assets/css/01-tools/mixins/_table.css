@@ -1,0 +1,77 @@
+/* ==========================================================================
+TABLE
+
+Example usage:
+
+table {
+	@mixin table-striped;
+}
+========================================================================== */
+
+@define-mixin table-striped {
+	--border-color: color(base--gray--100);
+	@mixin body-lg;
+	margin: 0;
+	border: none;
+
+	th,
+	td,
+	tr,
+	thead,
+	tbody,
+	tfoot {
+		border: none;
+	}
+
+	thead {
+		vertical-align: top;
+		border-bottom: solid spacing(1) var(--border-color);
+
+		th {
+			padding-top: 0;
+			text-transform: uppercase;
+		}
+	}
+
+	tfoot {
+		border-top: solid spacing(1) var(--border-color);
+
+		td {
+			padding-top: spacing(16);
+			padding-bottom: 0;
+		}
+	}
+
+	th,
+	tfoot td {
+		font-weight: font-weight(bold);
+	}
+
+	tbody {
+		vertical-align: top;
+
+		tr {
+			border-bottom: solid spacing(1) var(--border-color);
+		}
+
+		td {
+			&:nth-child(2n) {
+				background: color(brand--raspberry);
+			}
+		}
+	}
+
+	th,
+	td {
+		padding: spacing(12);
+		text-align: left;
+
+		&:first-child {
+			padding-left: 0;
+		}
+
+		&:last-child {
+			padding-right: 0;
+		}
+	}
+}

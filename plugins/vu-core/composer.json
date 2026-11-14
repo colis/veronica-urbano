@@ -1,0 +1,12 @@
+{
+	"name": "colis/vu-core",
+	"description": "VU Core",
+	"type": "wordpress-plugin",
+	"version": "1.0.0",
+	"authors": [
+		{
+			"name": "Carmine Colicino",
+			"email": "carminecolicino@gmail.com"
+		}
+	]
+}

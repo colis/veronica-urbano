@@ -1,0 +1,72 @@
+/* ==========================================================================
+ALIGNMENT
+========================================================================== */
+
+.aligncenter {
+	clear: both;
+}
+
+.alignleft,
+.wp-block-image .alignleft {
+	float: left;
+	margin: spacing(8) spacing(24) spacing(16) 0;
+}
+
+.alignright,
+.wp-block-image .alignright {
+	float: right;
+	margin: spacing(8) 0 spacing(16) spacing(24);
+}
+
+.alignleft,
+.alignright,
+.wp-block-image .alignleft,
+.wp-block-image .alignright {
+	@media (--lg-down) {
+		display: block;
+		float: none;
+		margin: spacing(32) 0;
+		width: 100%;
+		max-width: none;
+	}
+}
+
+.alignwide {
+	@mixin grid-container--wide;
+}
+
+.alignfull {
+	@mixin grid-container--full;
+}
+
+/* Block editor text alignment (replaces wp-block-library common) */
+
+.has-text-align-left {
+	text-align: left;
+}
+
+.has-text-align-center {
+	text-align: center;
+}
+
+.has-text-align-right {
+	text-align: right;
+}
+
+/* Block editor item justification (replaces wp-block-library common) */
+
+.items-justified-left {
+	justify-content: flex-start;
+}
+
+.items-justified-center {
+	justify-content: center;
+}
+
+.items-justified-right {
+	justify-content: flex-end;
+}
+
+.items-justified-space-between {
+	justify-content: space-between;
+}

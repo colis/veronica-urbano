@@ -1,0 +1,68 @@
+/* ==========================================================================
+HAMBURGER BUTTON
+========================================================================== */
+
+.c-site-header__hamburger {
+	--line-width: rem(26px);
+	--line-height: rem(2.5px);
+	@mixin reset-button;
+	display: flex;
+	position: relative;
+	z-index: 1;
+	margin-left: rem(-3px);
+	width: spacing(32);
+	height: spacing(32);
+	overflow: clip;
+
+	@mixin mobile-menu-up {
+		display: none;
+	}
+
+	.line {
+		@mixin transition single-arg(opacity, top, transform),
+			calc(transition(duration) * 2);
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		border-radius: radius(lg);
+		background-color: color(brand--aubergine);
+		width: var(--line-width);
+		height: var(--line-height);
+
+		&:first-child {
+			top: calc(50% - spacing(8));
+		}
+
+		&:last-child {
+			top: calc(50% + spacing(8));
+			opacity: 1;
+		}
+	}
+}
+
+/* ==========================================================================
+Animate hamburger button when mobile drawer is active
+========================================================================== */
+
+body.mobile-drawer-active {
+	.c-site-header__hamburger {
+		.line {
+			background-color: color(brand--raspberry);
+
+			&:first-child {
+				top: 50%;
+				transform: translate(-50%, -50%) rotate(45deg);
+			}
+
+			&:nth-child(2) {
+				transform: translate(-50%, -50%) rotate(-45deg);
+			}
+
+			&:last-child {
+				top: 110%;
+				opacity: 0;
+			}
+		}
+	}
+}

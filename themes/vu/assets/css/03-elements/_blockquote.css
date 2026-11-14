@@ -1,0 +1,14 @@
+/* ==========================================================================
+BLOCKQUOTE
+========================================================================== */
+
+blockquote {
+	margin-right: 0;
+	margin-left: 0;
+	color: color(heading);
+	font-weight: font-weight(bold);
+
+	p {
+		@mixin heading 2;
+	}
+}

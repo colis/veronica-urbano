@@ -1,0 +1,24 @@
+/* ==========================================================================
+QUERY LOOP BLOCK
+========================================================================== */
+
+.wp-block-query {
+	.wp-block-query-no-results {
+		.wp-block-group {
+			margin: spacing(24);
+			border-radius: radius(lg);
+			background-color: color(brand--paper);
+			padding: spacing(48) spacing(24);
+
+			p {
+				margin: 0;
+				color: color(brand--raspberry);
+				font-weight: font-weight(bold);
+				font-size: font-size(18);
+				line-height: 1.55556;
+				letter-spacing: rem(-0.5px);
+				text-align: center;
+			}
+		}
+	}
+}

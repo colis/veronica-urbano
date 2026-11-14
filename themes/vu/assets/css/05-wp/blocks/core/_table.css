@@ -1,0 +1,35 @@
+/* ==========================================================================
+TABLE
+========================================================================== */
+
+.wp-block-table {
+	&:has(tfoot) .wp-element-caption {
+		margin-top: spacing(24);
+	}
+
+	&:has(.wp-element-caption) {
+		padding-bottom: 2px;
+	}
+
+	.wp-element-caption {
+		caption-side: bottom;
+	}
+
+	table {
+		@mixin table-striped;
+
+		&.has-fixed-layout {
+			@media (--lg-down) {
+				table-layout: auto;
+			}
+
+			th,
+			td {
+				@media (--lg-down) {
+					min-width: rem(200px);
+					word-break: auto-phrase;
+				}
+			}
+		}
+	}
+}

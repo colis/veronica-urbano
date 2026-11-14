@@ -1,0 +1,31 @@
+/* ==========================================================================
+LAYOUT
+========================================================================== */
+
+html,
+body,
+#page {
+	min-height: calc(100dvh - var(--wp-admin-bar));
+}
+
+html,
+body {
+	overflow-x: clip;
+}
+
+#page {
+	display: flex;
+	flex-direction: column;
+}
+
+.c-content-area {
+	@mixin grid-container;
+
+	[id] {
+		scroll-margin-top: spacing(96);
+
+		@media (--lg-up) {
+			scroll-margin-top: spacing(160);
+		}
+	}
+}

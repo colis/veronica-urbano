@@ -1,0 +1,55 @@
+/* ==========================================================================
+SKELETONS
+
+Example usage:
+
+.my-class {
+	@mixin skeleton;
+}
+========================================================================== */
+
+@define-mixin skeleton {
+	position: relative;
+	border-radius: radius(sm);
+	background-color: color(skeleton-base);
+	width: rem(100px);
+	height: spacing(16);
+	overflow: hidden;
+
+	@media (--sm-up) {
+		width: rem(150px);
+	}
+
+	&::after {
+		position: absolute;
+		top: 0;
+		left: 0;
+		animation: shimmer 1.5s infinite;
+		background: linear-gradient(
+			90deg,
+			transparent,
+			color(skeleton-highlight),
+			transparent
+		);
+		width: 100%;
+		height: 100%;
+		content: "";
+
+		@media (prefers-reduced-motion: reduce) {
+			animation: none;
+		}
+	}
+
+	&.hidden {
+		display: none;
+	}
+
+	@keyframes shimmer {
+		0% {
+			transform: translateX(-100%);
+		}
+		100% {
+			transform: translateX(100%);
+		}
+	}
+}

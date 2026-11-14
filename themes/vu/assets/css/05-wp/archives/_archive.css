@@ -1,0 +1,52 @@
+/* ==========================================================================
+ARCHIVE
+========================================================================== */
+
+/* Default */
+body.archive,
+body.search {
+	&:has(.c-card-story-listing) {
+		.c-content-area {
+			max-width: calc(rem(1124px) + (grid(gutter) * 2));
+		}
+	}
+
+	.c-site-content {
+		--margin-bottom: spacing-step(80);
+		margin-bottom: var(--margin-bottom);
+	}
+}
+
+.c-archive-main__date {
+	margin-top: spacing(16);
+	margin-bottom: 0;
+}
+
+/*
+FAQ Category
+Legal Category
+*/
+body.tax-faq_category,
+body.tax-legal_category {
+	.grid-posts__1 {
+		gap: 0;
+	}
+
+	.c-pagination {
+		display: none;
+		visibility: hidden;
+	}
+}
+
+/* FAQ Category */
+body.tax-faq_category {
+	&:has(.c-faq-cta) {
+		.c-site-content {
+			margin-bottom: 0;
+		}
+	}
+
+	.c-faq-cta {
+		margin-top: var(--margin-bottom);
+	}
+}

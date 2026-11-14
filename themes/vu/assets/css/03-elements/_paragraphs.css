@@ -1,0 +1,62 @@
+/* ==========================================================================
+PARAGRAPHS
+========================================================================== */
+
+:root {
+	:where(p) {
+		&,
+		&.wp-block-paragraph {
+			margin: 0 0 spacing(16);
+		}
+
+		&:empty {
+			display: none;
+		}
+
+		&:last-child {
+			&,
+			&[class*="is-style"] {
+				margin-bottom: 0;
+			}
+		}
+
+		&.has-background {
+			padding: spacing(16) spacing(24);
+		}
+
+		img {
+			--margin: spacing(8);
+			display: inline-block;
+			position: relative;
+			top: spacing(negative-2);
+			vertical-align: middle;
+
+			&:first-child {
+				margin-right: var(--margin);
+			}
+		}
+
+		&.is-style-eyebrow,
+		&.is-style-eyebrow-caps {
+			&.has-icon {
+				@mixin inline-icon flex;
+
+				&.has-icon-leading::before {
+					@mixin inline-icon-pseudo;
+				}
+
+				&.has-text-align-center {
+					justify-content: center;
+				}
+
+				&.has-text-align-right {
+					justify-content: flex-end;
+				}
+			}
+		}
+	}
+}
+
+strong {
+	font-weight: font-weight(bold);
+}

@@ -1,0 +1,3 @@
+{
+	"phpcs.executablePath": "mu-plugins/vendor/bin/phpcs"
+}

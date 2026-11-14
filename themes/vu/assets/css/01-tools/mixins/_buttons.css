@@ -1,0 +1,227 @@
+/* ==========================================================================
+BUTTONS
+
+Example usage:
+
+Primary button
+------------------------
+.my-class {
+	@mixin button;
+}
+
+Secondary button
+------------------------
+.my-class {
+	@mixin button;
+	@mixin button-outline;
+}
+
+Tertiary button
+------------------------
+.my-class {
+	@mixin button;
+	@mixin button-tertiary;
+}
+
+Text Only button
+------------------------
+.my-class {
+	@mixin button;
+	@mixin button-text;
+}
+
+See also button utility classes: 01-tools/utilities/_buttons.css
+
+========================================================================== */
+
+/*------------------------------------
+Primary (Fill)
+------------------------------------*/
+
+@define-mixin button {
+	--padding-y: 0px; /* stylelint-disable-line length-zero-no-unit */
+	--padding-x: spacing(24);
+	--height: spacing(48);
+	--bg-color: color(background--inverse);
+	--border-width: spacing(2);
+	--outline-color: color(focus--ring);
+	--text-color: color(white);
+
+	@mixin inline-icon;
+	@mixin transition single-arg(background, color);
+	position: relative;
+	justify-content: center;
+	cursor: pointer;
+	box-sizing: border-box;
+	border: none;
+	border-radius: radius(full);
+	background: var(--bg-color);
+	padding: var(--padding-y) var(--padding-x);
+	min-height: var(--height);
+	color: var(--text-color);
+	font-weight: typography(button--font-weight);
+	font-size: typography(button--font-size);
+	font-family: typography(button--font-family);
+	line-height: typography(button--line-height);
+	font-variant-ligatures: none;
+	letter-spacing: typography(button--letter-spacing);
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-wrap: pretty;
+
+	&:hover,
+	&:active {
+		@mixin button-hover;
+	}
+
+	&:focus-visible {
+		@mixin button-focus;
+	}
+
+	&[disabled] {
+		@mixin button-disabled;
+	}
+}
+
+@define-mixin button-hover {
+	--bg-color: color(accent--hover);
+}
+
+@define-mixin button-focus {
+	outline: solid var(--border-width) var(--outline-color);
+	@mixin outline-offset;
+}
+
+@define-mixin button-disabled {
+	--bg-color: color(button--primary--background--disabled);
+	cursor: not-allowed;
+}
+
+@define-mixin button-small {
+	--height: spacing(36);
+	font-size: rem(13px);
+}
+
+/*------------------------------------
+Secondary (Outline)
+------------------------------------*/
+
+@define-mixin button-outline {
+	--bg-color: color(button--secondary--background--rest);
+	--border-color: color(button--secondary--border--default);
+	--text-color: color(button--secondary--foreground--rest);
+	border: var(--border-width) solid var(--border-color);
+	padding-top: calc(var(--padding-y) - var(--border-width));
+	padding-bottom: calc(var(--padding-y) - var(--border-width));
+	font-weight: font-weight(medium);
+
+	&:hover,
+	&:active {
+		@mixin button-outline-hover;
+	}
+
+	&:active {
+		--border-color: color(button--secondary--border--active);
+	}
+
+	&:focus-visible {
+		@mixin button-outline-focus;
+	}
+
+	&[disabled] {
+		@mixin button-outline-disabled;
+	}
+}
+
+@define-mixin button-outline-hover {
+	--bg-color: color(button--secondary--background--rest);
+	--border-color: color(button--secondary--border--hover);
+	@mixin outline-offset spacing(negative-2);
+	outline: solid var(--border-width) var(--outline-color);
+}
+
+@define-mixin button-outline-focus {
+	--border-color: color(button--secondary--border--focus);
+}
+
+@define-mixin button-outline-disabled {
+	--bg-color: color(button--secondary--background--disabled);
+	--border-color: color(button--secondary--border--disabled);
+	--text-color: color(button--secondary--foreground--disabled);
+	outline: none;
+}
+
+/*------------------------------------
+Tertiary
+------------------------------------*/
+
+@define-mixin button-tertiary {
+	@mixin button-outline;
+	--bg-color: color(button--tertiary--background--rest);
+	--border-color: color(button--tertiary--border--default);
+	--text-color: color(button--tertiary--foreground--rest);
+
+	&:hover,
+	&:active,
+	&:focus-visible {
+		--bg-color: color(button--tertiary--background--rest);
+	}
+
+	&:hover {
+		--border-color: color(button--tertiary--border--hover);
+	}
+
+	&:active {
+		--border-color: color(button--tertiary--border--active);
+	}
+
+	&:focus-visible {
+		--border-color: color(button--tertiary--border--focus);
+		@mixin outline-offset spacing(negative-2);
+	}
+
+	&[disabled] {
+		@mixin button-tertiary-disabled;
+	}
+}
+
+@define-mixin button-tertiary-disabled {
+	--bg-color: color(button--tertiary--background--disabled);
+	--border-color: color(button--tertiary--border--disabled);
+	--text-color: color(button--tertiary--foreground--disabled);
+}
+
+/*------------------------------------
+Text Only
+------------------------------------*/
+
+@define-mixin button-text {
+	--bg-color: transparent !important;
+	--text-color: color(button--text-only--foreground--rest);
+	border-radius: 0;
+	font-weight: font-weight(medium);
+	line-height: 1.358;
+	text-decoration: underline;
+
+	&:active {
+		--text-color: color(button--text-only--foreground--active);
+	}
+
+	&:hover {
+		@mixin button-text-hover;
+	}
+
+	&:focus-visible {
+		--text-color: color(button--text-only--foreground--focus);
+		@mixin outline-offset spacing(negative-1);
+	}
+
+	&[disabled] {
+		--text-color: color(button--text-only--foreground--disabled);
+	}
+}
+
+@define-mixin button-text-hover {
+	--text-color: color(button--text-only--foreground--hover);
+}

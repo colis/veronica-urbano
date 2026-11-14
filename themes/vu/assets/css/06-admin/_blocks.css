@@ -1,0 +1,78 @@
+/* ==========================================================================
+BLOCK OVERRIDE STYLES
+========================================================================== */
+
+/**
+ * Fix for Image align center.
+ */
+.wp-block-image {
+	&.aligncenter {
+		> div {
+			margin-right: auto;
+			margin-left: auto;
+		}
+	}
+}
+
+/**
+ * Fix for Media & Text video.
+ */
+.wp-block-media-text {
+	&.has-video {
+		&.alignfull.has-background {
+			padding-right: 0;
+			padding-left: 0;
+		}
+
+		&.is-style-classic-callout {
+			.video-player-wrapper {
+				border-radius: radius(3-xl) radius(3-xl) 0 0;
+				overflow: clip;
+
+				@media (--md-up) {
+					border-radius: radius(3-xl) 0 0 radius(3-xl);
+				}
+			}
+
+			&.has-media-on-the-right {
+				.video-player-wrapper {
+					@media (--md-up) {
+						border-radius: 0 radius(3-xl) radius(3-xl) 0;
+					}
+				}
+			}
+		}
+
+		&.is-style-profile-card {
+			.video-player-wrapper {
+				border-radius: radius(3-xl);
+				overflow: clip;
+			}
+		}
+
+		.wp-block-media-text__media {
+			position: relative;
+			padding: 0;
+			aspect-ratio: 16 / 9;
+
+			> *:not(.video-player-wrapper) {
+				display: none;
+			}
+
+			.video-player-wrapper {
+				pointer-events: none;
+			}
+		}
+	}
+}
+
+/**
+ * Fix for Table row headings.
+ */
+.wp-block-table {
+	&.has-row-headings {
+		tbody tr td:first-of-type {
+			font-weight: font-weight(bold);
+		}
+	}
+}

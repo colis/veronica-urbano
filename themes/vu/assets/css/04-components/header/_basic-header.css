@@ -1,0 +1,25 @@
+/* ==========================================================================
+BASIC HEADER (for Basic Template)
+========================================================================== */
+
+.c-site-header--basic {
+	background-color: color(brand--aubergine);
+	padding: rem(18px) 0;
+
+	.c-site-header__branding {
+		position: relative;
+		left: 0;
+		justify-content: center;
+		transform: unset;
+		background-color: unset;
+		padding: 0;
+	}
+
+	.c-site-logo {
+		--logo-size: rem(52px);
+	}
+
+	img.site-logo {
+		filter: brightness(0) invert(1);
+	}
+}

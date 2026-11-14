@@ -1,0 +1,86 @@
+/* ==========================================================================
+SITE BRANDING
+========================================================================== */
+
+.c-site-header__branding {
+	--header-logo-bottom: 0;
+	display: flex;
+	align-items: center;
+	z-index: 1;
+
+	@mixin mobile-menu-down {
+		position: absolute;
+		bottom: var(--header-logo-bottom);
+		left: 50%;
+		transform: translate(-50%, 50%);
+		border-radius: radius(full);
+		background-color: color(white);
+		padding: spacing(12);
+	}
+
+	a {
+		display: block;
+
+		&:focus-visible {
+			@mixin focus-outline;
+			@mixin outline-offset;
+		}
+	}
+}
+
+.c-site-logo {
+	--logo-size: rem(78px);
+	@mixin transition max-width;
+	max-width: var(--logo-size);
+
+	@mixin mobile-menu-up {
+		--logo-size: rem(62px);
+	}
+
+	img {
+		display: block;
+		width: auto;
+	}
+}
+
+/*
+Sticky Header
+Header Has No Mobile Top Bar
+*/
+.c-site-header.is-sticky,
+.c-site-header:not(:has(.c-site-header__top.mobile)) {
+	.c-site-header__branding {
+		@mixin mobile-menu-down {
+			--header-logo-bottom: 50%;
+			transform: translate(-50%, 50%);
+			padding: 0;
+		}
+	}
+
+	.c-site-logo {
+		@mixin mobile-menu-down {
+			--logo-size: rem(49px);
+			transition: none;
+		}
+	}
+}
+
+/* ==========================================================================
+Animate header branding when the mobile drawer is active / inactive
+========================================================================== */
+
+/* Animate Out - when a mobile drawer is active */
+body.mobile-drawer-active {
+	.c-site-header__branding {
+		animation: headerLogoSlideUp calc(var(--animation-duration) * 1.5) 0ms
+			both;
+	}
+}
+
+/* Animate In - when a mobile drawer is inactive */
+body.mobile-drawer-closed {
+	.c-site-header__branding {
+		animation: headerLogoSlideDown calc(var(--animation-duration) * 1.5) 0ms
+			both;
+	}
+}

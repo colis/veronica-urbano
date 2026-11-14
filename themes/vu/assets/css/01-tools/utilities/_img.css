@@ -1,0 +1,13 @@
+/* ==========================================================================
+IMAGE UTILITY CLASSES
+========================================================================== */
+
+/*------------------------------------
+Custom Background
+------------------------------------*/
+
+.has-custom-background {
+	background-position: center;
+	background-size: cover;
+	background-repeat: repeat;
+}

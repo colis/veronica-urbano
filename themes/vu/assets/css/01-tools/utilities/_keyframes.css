@@ -1,0 +1,249 @@
+/* ==========================================================================
+KEYFRAME ANIMATIONS
+
+Example usage:
+
+Fade In
+------------------------
+.element.active {
+	display: flex;
+	animation: fadeIn transition(duration) 0ms both;
+}
+
+Fade Out
+------------------------
+.element {
+	display: none;
+	animation: fadeOut transition(duration) 0ms both;
+}
+
+========================================================================== */
+
+@keyframes fadeIn {
+	from {
+		display: none;
+		opacity: 0;
+	}
+	to {
+		display: flex;
+		opacity: 1;
+	}
+}
+
+@keyframes fadeOut {
+	from {
+		display: flex;
+		opacity: 1;
+	}
+	to {
+		display: none;
+		opacity: 0;
+	}
+}
+
+@keyframes scale90Entrance {
+	from {
+		transform: scale(0.9);
+	}
+	to {
+		transform: scale(1);
+	}
+}
+
+@keyframes scale90Exit {
+	from {
+		transform: scale(1);
+	}
+	to {
+		transform: scale(0.9);
+	}
+}
+
+@keyframes slideUpEntrance {
+	from {
+		transform: translateY(var(--slide-up-distance, 3rem));
+	}
+	to {
+		transform: translateY(0);
+	}
+}
+
+@keyframes slideUpExit {
+	from {
+		transform: translateY(0);
+	}
+	to {
+		transform: translateY(var(--slide-up-distance, 3rem));
+	}
+}
+
+@keyframes slideDownEntrance {
+	from {
+		transform: translateY(var(--slide-down-distance, -3rem));
+	}
+	to {
+		transform: translateY(0);
+	}
+}
+
+@keyframes slideDownExit {
+	from {
+		transform: translateY(0);
+	}
+	to {
+		transform: translateY(var(--slide-down-distance, -3rem));
+	}
+}
+
+@keyframes headerNavDesktopSlideRight {
+	from {
+		transform: translateX(-100%);
+	}
+	to {
+		transform: translateX(0) perspective(1px);
+	}
+}
+
+@keyframes headerNavDesktopSlideLeft {
+	from {
+		transform: translateX(0%);
+	}
+	to {
+		transform: translateX(-100%);
+	}
+}
+
+@keyframes headerNavMobileSlideUp {
+	from {
+		transform: translateY(0%);
+	}
+	to {
+		transform: translateY(-200px);
+	}
+}
+
+@keyframes headerNavMobileSlideDown {
+	from {
+		transform: translateY(-200px);
+	}
+	to {
+		transform: translateY(0);
+	}
+}
+
+@keyframes headerMenuItemMobileSlideLeft {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-100px);
+	}
+}
+
+@keyframes headerMenuItemMobileSlideRight {
+	from {
+		transform: translateX(-100px);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+
+@keyframes headerSubmenuMobileSlideLeft {
+	from {
+		transform: translateX(100px);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+
+@keyframes headerSubmenuMobileSlideRight {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(100px);
+	}
+}
+
+@keyframes headerLogoSlideUp {
+	from {
+		bottom: var(--header-logo-bottom);
+	}
+	to {
+		bottom: 170%;
+	}
+}
+
+@keyframes headerLogoSlideDown {
+	from {
+		bottom: 170%;
+	}
+	to {
+		bottom: var(--header-logo-bottom);
+	}
+}
+
+@keyframes headerSearchMobileSlideUp {
+	from {
+		transform: translateY(calc(4rem + grid(gutter)));
+	}
+	to {
+		transform: translateY(0);
+	}
+}
+
+/* 404 Content Images Animation */
+@keyframes move404ImagesAnimation {
+	0% {
+		top: var(--offscreen-top);
+		left: var(--offscreen-left);
+	}
+	100% {
+		top: var(--reset-top);
+		left: var(--reset-left);
+	}
+}
+
+@keyframes move404HoofAnimation {
+	0% {
+		top: var(--reset-top);
+		left: var(--reset-left);
+	}
+	100% {
+		top: var(--offscreen-top);
+		left: var(--offscreen-left);
+	}
+}
+
+/* Enter from left to right, flip at midpoint, return to left */
+@keyframes lottie-drive {
+	0% {
+		transform: translateX(-100%) translateY(-95px) scaleX(1);
+	}
+
+	49.9% {
+		transform: translateX(calc(100vw + 100%)) translateY(-95px) scaleX(1);
+	}
+
+	50% {
+		transform: translateX(calc(100vw + 100%)) translateY(-95px) scaleX(-1);
+	}
+
+	100% {
+		transform: translateX(-100%) translateY(-95px) scaleX(-1);
+	}
+}
+
+@keyframes lottie-position {
+	0%,
+	100% {
+		transform: var(--lottie-transform-hidden);
+	}
+
+	20%,
+	85% {
+		transform: var(--lottie-transform-visible);
+	}
+}

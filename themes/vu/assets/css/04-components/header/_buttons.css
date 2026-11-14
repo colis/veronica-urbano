@@ -1,0 +1,45 @@
+/* ==========================================================================
+HEADER BUTTONS
+========================================================================== */
+
+.c-site-header__buttons {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.c-site-header__button {
+	padding: rem(17px) rem(37.5px);
+
+	@mixin mobile-menu-down {
+		all: unset;
+		cursor: pointer;
+		color: color(foreground--link);
+		font-weight: typography(button--font-weight);
+		font-size: font-size(16);
+		line-height: 1.5;
+	}
+
+	&,
+	&:hover,
+	&:focus-visible,
+	&:active {
+		@mixin mobile-menu-up {
+			color: color(white);
+		}
+	}
+
+	&:hover,
+	&:focus-visible,
+	&:active {
+		@mixin mobile-menu-down {
+			background: transparent;
+			color: color(button--text-only--foreground--hover);
+		}
+	}
+
+	&:focus-visible {
+		@mixin focus-outline;
+		@mixin outline-offset;
+	}
+}

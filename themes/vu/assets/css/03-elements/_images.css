@@ -1,0 +1,20 @@
+/* ==========================================================================
+IMAGES
+========================================================================== */
+
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+
+	/* Location CDN images */
+	&.cdn {
+		@mixin transition opacity, 500ms;
+		opacity: 0;
+		will-change: opacity;
+
+		&.loaded {
+			opacity: 1;
+		}
+	}
+}

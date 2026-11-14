@@ -1,0 +1,75 @@
+{
+	"extends": ["@wordpress/stylelint-config"],
+	"languageOptions": {
+		"syntax": {
+			"types": {
+				"resolve()": "resolve( <string> ) [ format( <string> ) ]?"
+			},
+			"atRules": {
+				"font-face": {
+					"descriptors": {
+						"src": "| <resolve()>#"
+					}
+				}
+			}
+		}
+	},
+	"rules": {
+		"at-rule-empty-line-before": null,
+		"at-rule-no-unknown": [
+			true,
+			{
+				"ignoreAtRules": [
+					"define-mixin",
+					"mixin",
+					"mixin-content",
+					"tailwind"
+				]
+			}
+		],
+		"at-rule-prelude-no-invalid": [
+			true,
+			{
+				"ignoreAtRules": ["mixin"]
+			}
+		],
+		"color-named": null,
+		"declaration-property-value-no-unknown": [
+			true,
+			{
+				"ignoreProperties": {
+					"/.+/": [
+						"/spacing\\(/",
+						"/color\\(/",
+						"/rem\\(/",
+						"/radius\\(/",
+						"/font-size\\(/",
+						"/font-weight\\(/",
+						"/grid\\(/",
+						"/heading\\(/",
+						"/custom\\(/",
+						"/transition\\(/",
+						"/typography\\(/",
+						"/spacing-step\\(/",
+						"/fluid\\(/",
+						"/resolve\\(/"
+					]
+				}
+			}
+		],
+		"nesting-selector-no-missing-scoping-root": [
+			true,
+			{ "ignoreAtRules": ["define-mixin"] }
+		],
+		"no-descending-specificity": null,
+		"no-invalid-position-declaration": [
+			true,
+			{
+				"ignoreAtRules": ["media"]
+			}
+		],
+		"rule-empty-line-before": null,
+		"selector-class-pattern": null,
+		"selector-nested-pattern": null
+	}
+}

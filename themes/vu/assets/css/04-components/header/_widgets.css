@@ -1,0 +1,46 @@
+/* ==========================================================================
+MENU ITEM WIDGETS
+========================================================================== */
+
+.c-menu-item-widgets {
+	margin-top: calc(spacing(32) - var(--sub-menu-gap));
+	border-top: solid spacing(1) color(base--gray--300);
+	padding-top: spacing(40);
+}
+
+.c-menu-item-widgets__label {
+	@mixin eyebrow-caps;
+}
+
+.c-menu-item-widgets__widgets {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-auto-flow: row;
+	gap: spacing(16);
+	margin: 0 0 spacing(16);
+
+	@mixin mobile-menu-up {
+		gap: spacing(20);
+	}
+}
+
+.c-menu-item-widget__widget {
+	flex-direction: column;
+	gap: spacing(16) !important;
+}
+
+.c-menu-item-widget__widget--image {
+	border-radius: radius(2-xl);
+	aspect-ratio: 1;
+	overflow: hidden;
+
+	img {
+		@mixin fit-image;
+	}
+}
+
+.c-menu-item-widget__widget--title {
+	@mixin body-md;
+	width: 100%;
+	font-weight: font-weight(medium);
+}

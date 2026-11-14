@@ -1,0 +1,22 @@
+/* ==========================================================================
+PRIMARY NAVIGATION - OVERLAY
+========================================================================== */
+
+.c-site-header__primary-nav--overlay {
+	display: none;
+	position: fixed;
+	top: 100%;
+	left: 0;
+	z-index: 0;
+	backdrop-filter: custom(misc--backdrop-blur);
+	background-color: color(background--transparent--default);
+	width: 100dvw;
+	height: 100dvh;
+}
+
+/* Animate Out - when sub menu is closing */
+body.sub-menu-closing {
+	.c-site-header__primary-nav--overlay {
+		animation: fadeOut var(--animation-duration) 0ms both;
+	}
+}

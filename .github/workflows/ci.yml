@@ -1,0 +1,44 @@
+name: CI Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout files and setup environment
+      uses: actions/checkout@v6
+
+    - name: Set up Node
+      uses: actions/setup-node@v7
+      with:
+        node-version: 24
+
+    - name: Build dependencies
+      run: npm run build-release
+
+    - name: Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        server-dir: /public_html/wp-content/
+        exclude: |
+          .*
+          composer.json
+          composer.lock
+          eslint.config.mjs
+          LICENSE
+          package-lock.json
+          package.json
+          phpcs.xml.dist
+          postcss.config.cjs
+          README.md
+          webpack.config.js
+          themes/vu/assets/**
+          plugins/vu-core/assets/**
+          plugins/vu-core/composer.json

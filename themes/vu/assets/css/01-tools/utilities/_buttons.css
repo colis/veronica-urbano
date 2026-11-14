@@ -1,0 +1,67 @@
+/* ==========================================================================
+BUTTON UTILITY CLASSES
+
+Example usage:
+
+Primary button
+---------------------------
+<a href="#" class="vu-button">Button Text</a>
+
+Secondary button
+----------------------------
+<a href="#" class="vu-button button-outline">Button Text</a>
+
+Tertiary button
+----------------------------
+<a href="#" class="vu-button button-tertiary">Button Text</a>
+
+Text Only button
+----------------------------
+<a href="#" class="vu-button button-text">Button Text</a>
+
+Small button
+----------------------------
+<a href="#" class="vu-button button-small">Button Text</a>
+<a href="#" class="vu-button button-outline button-small">Button Text</a>
+
+========================================================================== */
+
+/*------------------------------------
+Primary (Fill)
+------------------------------------*/
+
+.vu-button {
+	@mixin button;
+}
+
+/*------------------------------------
+Secondary (Outline)
+------------------------------------*/
+
+.button-outline {
+	@mixin button-outline;
+}
+
+/*------------------------------------
+Tertiary
+------------------------------------*/
+
+.button-tertiary {
+	@mixin button-tertiary;
+}
+
+/*------------------------------------
+Text Only
+------------------------------------*/
+
+.button-text {
+	@mixin button-text;
+}
+
+/*------------------------------------
+Small Button
+------------------------------------*/
+
+.button-small {
+	@mixin button-small;
+}

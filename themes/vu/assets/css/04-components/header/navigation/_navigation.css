@@ -1,0 +1,358 @@
+/* ==========================================================================
+PRIMARY NAVIGATION
+========================================================================== */
+
+#header-primary-menu {
+	display: flex;
+	align-items: flex-start;
+	z-index: 2;
+	margin: 0;
+
+	@mixin mobile-menu-up {
+		align-items: center;
+	}
+
+	ul {
+		@mixin reset-list-style;
+	}
+
+	.menu-wrapper {
+		flex-direction: column;
+		justify-content: flex-start;
+		gap: spacing(32);
+		width: 100%;
+
+		@mixin mobile-menu-up {
+			flex-direction: row;
+			gap: 0;
+		}
+
+		&,
+		> .menu-item {
+			display: flex;
+
+			@mixin mobile-menu-up {
+				align-items: center;
+				height: 100%;
+			}
+		}
+
+		/* All Menu Item Links / Toggles */
+		a,
+		.menu-item-toggle {
+			cursor: pointer;
+			color: color(brand--raspberry);
+			font-weight: font-weight(bold);
+			letter-spacing: 0;
+			text-decoration: none;
+
+			&:focus-visible {
+				@mixin focus-outline;
+				@mixin outline-offset;
+			}
+		}
+
+		.menu-item-toggle {
+			@mixin reset-button;
+		}
+
+		.svg-icon.menu-chevron-right {
+			display: none;
+		}
+
+		/* Top Level Menu Items */
+		> .menu-item {
+			&.active > a,
+			&.active > .menu-item-toggle,
+			> a:hover,
+			> .menu-item-toggle:hover {
+				span::before {
+					width: 100%;
+				}
+			}
+
+			/* Top Level Menu Links */
+			> a,
+			> .menu-item-toggle {
+				@mixin heading md;
+				display: flex;
+				position: relative;
+				justify-content: space-between;
+				align-items: center;
+				width: 100%;
+
+				@mixin mobile-menu-up {
+					@mixin heading xs;
+					padding-right: var(--menu-spacing);
+					padding-left: var(--menu-spacing);
+					height: 100%;
+					font-weight: font-weight(bold);
+					font-size: rem(15px);
+					line-height: 1.4;
+					letter-spacing: 0.04em;
+				}
+
+				&:focus-visible {
+					@mixin outline-offset spacing(negative-1);
+				}
+
+				.svg-icon {
+					margin-right: spacing(negative-8);
+
+					@mixin mobile-menu-down {
+						display: block;
+					}
+				}
+
+				&.separator {
+					span::after {
+						@mixin mobile-menu-up {
+							display: block;
+							position: absolute;
+							top: 0;
+							left: calc(var(--menu-spacing) * -1);
+							background-color: color(brand--raspberry);
+							width: spacing(1);
+							height: 100%;
+							content: "";
+						}
+					}
+				}
+
+				span {
+					position: relative;
+
+					/* Hover underline bar */
+					&::before {
+						display: none;
+						@mixin transition width, var(--animation-duration);
+						position: absolute;
+						bottom: rem(-3px);
+						left: 0;
+						background-color: color(brand--raspberry);
+						width: 0;
+						height: spacing(2);
+						content: "";
+
+						@mixin mobile-menu-up {
+							display: block;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	/* Sub Menus */
+	.sub-menu {
+		--mobile-sub-menu-top: spacing(72);
+		--sub-menu-gap: spacing(12);
+		--padding-top: spacing(2); /* Allow for outline when focused */
+		display: none;
+		position: absolute;
+		top: calc(
+			var(--mobile-sub-menu-top) + var(--mobile-drawer-margin-top) -
+				var(--padding-top)
+		);
+		left: 0;
+		flex-direction: column;
+		gap: var(--sub-menu-gap);
+		z-index: 2;
+		background-color: color(white);
+		padding: var(--padding-top) 0 0;
+		width: 100%;
+		height: calc(
+			100dvh - var(--mobile-sub-menu-top) -
+				(var(--mobile-drawer-margin-top) * 2) -
+				var(--header-content-height) - grid(gutter)
+		);
+		overflow-x: clip;
+		overflow-y: auto;
+
+		@mixin mobile-menu-up {
+			position: fixed;
+			top: 100%;
+			transform: translateX(-100%);
+			will-change: display, transform;
+			border-bottom-right-radius: radius(4-xl);
+			padding: spacing(16) spacing(72);
+			max-width: rem(508px);
+			height: calc(
+				100dvh - var(--wp-admin-bar) - var(--header-banner-height) -
+					var(--top-bar-border-width) - var(--top-bar-height) -
+					var(--header-content-height)
+			);
+			overflow: auto;
+		}
+
+		/* Sub Menu Items */
+		.menu-item {
+			&:has(.separator) {
+				--padding: spacing(32);
+				margin-top: calc(var(--padding) - var(--sub-menu-gap));
+				border-top: solid spacing(1) color(base--gray--300);
+				padding-top: var(--padding);
+			}
+		}
+
+		/* Sub Menu Links */
+		a {
+			--height: spacing(48);
+			display: flex;
+			align-items: center;
+			gap: spacing(20);
+			min-height: var(--height);
+
+			&:not(.sub-link) {
+				@mixin heading 3;
+			}
+
+			&.sub-link {
+				@mixin body-md;
+				padding-top: spacing(8);
+				padding-bottom: spacing(8);
+				color: color(foreground--default);
+				font-weight: font-weight(medium);
+			}
+
+			&:hover {
+				text-decoration: underline;
+			}
+
+			.thumbnail {
+				border-radius: 50%;
+				width: var(--height);
+				height: var(--height);
+
+				img {
+					@mixin fit-image contain;
+				}
+			}
+
+			span:not(.thumbnail) {
+				flex: 1;
+			}
+		}
+	}
+}
+
+/* Rewards mobile drawer component is missing or hidden */
+.c-site-header__nav {
+	&:not(:has(.c-site-header__rewards)),
+	&:has(.c-site-header__rewards.hidden) {
+		#header-primary-menu {
+			@mixin mobile-menu-down {
+				margin-top: var(--mobile-drawer-margin-top);
+			}
+		}
+	}
+}
+
+/* ===============================================================================
+Desktop & Mobile
+Animate Primary Nav Overlay and Sub Menu based on menu item with children state
+=============================================================================== */
+
+/*
+Animate In - when a menu item with children is made active
+The `:not(.sub-menu-closing)` ensures the open animation runs after closing animation.
+*/
+body:not(.sub-menu-closing) {
+	#header-primary-menu {
+		li.menu-item-has-children.active {
+			> .c-site-header__primary-nav--overlay {
+				@mixin mobile-menu-up {
+					display: flex;
+					animation: fadeIn var(--animation-duration) 0ms both;
+				}
+			}
+
+			> .sub-menu {
+				display: flex;
+				animation:
+					fadeIn var(--animation-duration) 0ms both,
+					headerSubmenuMobileSlideLeft var(--animation-duration) 0ms
+						both;
+
+				@mixin mobile-menu-up {
+					animation:
+						fadeIn var(--animation-duration) 0ms both,
+						headerNavDesktopSlideRight
+							calc(var(--animation-duration) * 1.5) 0ms both;
+				}
+			}
+		}
+	}
+}
+
+/* ===============================================================================
+Desktop
+Animate Primary Nav Sub Menu based primary navigation state
+=============================================================================== */
+
+/* Animate Out - when sub menu is closing on desktop devices */
+body.sub-menu-closing #header-primary-menu {
+	.sub-menu {
+		@mixin mobile-menu-up {
+			animation:
+				fadeOut var(--animation-duration) 0ms both,
+				headerNavDesktopSlideLeft calc(var(--animation-duration) * 1.5)
+					0ms both;
+		}
+	}
+}
+
+/* ===============================================================================
+Mobile
+Animate root level mobile drawer items based on sub menu state
+=============================================================================== */
+
+/*
+Animate In - when a sub menu is made inactive
+1. When the mobile drawer is active - fade in and slide.
+2. When the mobile drawer is closed - fade in only.
+*/
+body.sub-menu-closing {
+	&.mobile-drawer-active {
+		.c-site-header__nav .c-site-header__rewards:not(.hidden),
+		#header-primary-menu .menu-wrapper > li.menu-item > button,
+		#header-primary-menu .menu-wrapper > li.menu-item > a,
+		.c-site-header__nav .c-site-header__top--btn:not(.search) {
+			@mixin mobile-menu-down {
+				animation:
+					fadeIn var(--animation-duration) 0ms both,
+					headerMenuItemMobileSlideRight var(--animation-duration) 0ms
+						both;
+			}
+		}
+	}
+
+	/*
+	When the mobile drawer is being closed,
+	we should only fade in the root level items without the slide effect.
+	*/
+	&.mobile-drawer-closed {
+		.c-site-header__nav .c-site-header__rewards:not(.hidden),
+		#header-primary-menu .menu-wrapper > li.menu-item > button,
+		#header-primary-menu .menu-wrapper > li.menu-item > a,
+		.c-site-header__nav .c-site-header__top--btn:not(.search) {
+			@mixin mobile-menu-down {
+				animation: fadeIn var(--animation-duration) 0ms both;
+			}
+		}
+	}
+}
+
+/* Animate Out - when a sub menu is made active */
+body.sub-menu-open {
+	.c-site-header__nav .c-site-header__rewards,
+	#header-primary-menu .menu-wrapper > li.menu-item > button,
+	#header-primary-menu .menu-wrapper > li.menu-item > a,
+	.c-site-header__nav .c-site-header__top--btn:not(.search) {
+		@mixin mobile-menu-down {
+			animation:
+				fadeOut var(--animation-duration) 0ms both,
+				headerMenuItemMobileSlideLeft var(--animation-duration) 0ms both;
+		}
+	}
+}

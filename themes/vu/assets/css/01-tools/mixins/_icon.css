@@ -1,0 +1,52 @@
+/* ==========================================================================
+ICON
+
+This mixin should be used sparingly; prefer to use inline SVG where possible.
+
+Example usage:
+
+.my-class {
+	&::before {
+		@mixin icon search, color(brand--aubergine), 2rem, 2rem;
+	}
+}
+========================================================================== */
+
+@define-mixin icon $name, $color: color(brand--raspberry), $height: spacing(20),
+	$width: spacing(20) {
+	@mixin transition background-color;
+	display: flex;
+	mask-image: resolve("icon-$name.svg");
+	-webkit-mask-image: resolve("icon-$name.svg");
+	mask-position: center;
+	-webkit-mask-position: center;
+	mask-size: contain;
+	-webkit-mask-size: contain;
+	mask-repeat: no-repeat;
+	-webkit-mask-repeat: no-repeat;
+	background-color: $color;
+	width: $width;
+	height: $height;
+	content: "";
+}
+
+/* Inline Icon */
+
+@define-mixin inline-icon $display: inline-flex {
+	display: $display;
+	column-gap: var(--icon-gap, 0);
+	align-items: center;
+}
+
+@define-mixin inline-icon-pseudo $size: 24 {
+	display: block;
+	flex-shrink: 0;
+	mask-image: var(--icon-url);
+	mask-position: center;
+	mask-size: contain;
+	mask-repeat: no-repeat;
+	background-color: currentcolor;
+	width: var(--icon-size, spacing($size));
+	height: var(--icon-size, spacing($size));
+	content: "";
+}

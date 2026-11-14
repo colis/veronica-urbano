@@ -1,0 +1,46 @@
+/* ==========================================================================
+GENERIC OVERRIDE STYLES
+========================================================================== */
+
+/**
+ * Fix for header z-index.
+ */
+header {
+	z-index: 2;
+}
+
+/**
+ * Fix for wide aligned blocks.
+ */
+.is-root-container.wp-block-post-content {
+	> .alignwide {
+		--margin: calc(50% - var(--wide-width-margin));
+		justify-self: center;
+		margin-right: var(--margin) !important;
+		margin-left: var(--margin) !important;
+	}
+}
+
+/*
+ * Fix for empty paragraphs.
+ * Keep empty paragraphs visible while editing.
+ * Frontend hides them via 03-elements/_paragraphs.css (p:empty), but RichText
+ * can briefly leave a paragraph empty when replacing text that includes <sup>.
+ */
+.editor-styles-wrapper :where(p):empty {
+	display: block;
+}
+
+/**
+ * Fix for generic button font family.
+ */
+button {
+	font-family: typography(body--font-family);
+}
+
+/**
+ * Fix for generic button font size.
+ */
+.wp-block .button {
+	font-size: typography(body-xl--font-size);
+}

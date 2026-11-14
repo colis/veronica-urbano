@@ -1,0 +1,52 @@
+/* ==========================================================================
+COVER
+========================================================================== */
+
+.wp-block-cover {
+	padding: spacing(40) grid(gutter);
+
+	/* Overlay Colors */
+	.wp-block-cover__background {
+		&.has-black-background-color {
+			background-color: color(black);
+		}
+
+		&.has-white-background-color {
+			background-color: color(white);
+		}
+	}
+
+	/*
+	Mobile Image
+	If a mobile image is added, hide the desktop image when appropriate.
+	*/
+	&:has(.wp-block-cover__image-background--mobile) {
+		.wp-block-cover__image-background:not(
+			.wp-block-cover__image-background--mobile
+		) {
+			display: none;
+
+			@media (--md-up) {
+				display: block;
+			}
+		}
+	}
+
+	/*
+	Mobile Image
+	Output the mobile image when appropriate.
+	*/
+	.wp-block-cover__image-background--mobile {
+		@mixin grid-container--full;
+		display: block;
+
+		@media (--md-up) {
+			display: none;
+		}
+	}
+
+	/* Content */
+	.wp-block-heading {
+		color: color(brand--raspberry);
+	}
+}

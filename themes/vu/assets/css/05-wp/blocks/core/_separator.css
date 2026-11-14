@@ -1,0 +1,56 @@
+/* ==========================================================================
+SEPARATOR BLOCK
+========================================================================== */
+
+.wp-block-separator.wp-block-separator {
+	--height: spacing(1);
+	margin: spacing-step(30) 0;
+	border: none;
+	width: 100% !important;
+	max-width: unset;
+	height: var(--height);
+
+	&.has-background {
+		padding: 0;
+	}
+
+	/* Style: Default */
+	&.is-style-default,
+	&:not(.is-style-three-dots) {
+		background-color: color(base--gray--400);
+	}
+
+	/* Style: Three Dots */
+	&.is-style-three-dots {
+		--height: spacing(16);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: transparent !important;
+
+		&::before {
+			display: block;
+			background: none;
+			padding: 0;
+			height: 100%;
+			content: "...";
+			font-weight: font-weight(bold);
+			font-size: rem(34px);
+			line-height: 0;
+			letter-spacing: spacing(4);
+		}
+
+		&,
+		&.has-brand-raspberry-background-color::before {
+			color: color(brand--raspberry);
+		}
+
+		&.has-brand-aubergine-background-color::before {
+			color: color(brand--aubergine);
+		}
+
+		&.has-white-background-color::before {
+			color: color(white);
+		}
+	}
+}

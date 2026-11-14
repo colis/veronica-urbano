@@ -1,0 +1,15 @@
+/* ==========================================================================
+LINKS
+========================================================================== */
+
+a:where(:not(.wp-element-button, .vu-button)) {
+	@mixin transition color;
+	color: color(foreground--link);
+	text-decoration: underline;
+
+	&:hover,
+	&:focus-visible,
+	&:active {
+		color: color(button--text-only--foreground--hover);
+	}
+}

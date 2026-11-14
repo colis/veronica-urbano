@@ -1,0 +1,62 @@
+/* ==========================================================================
+PAGINATION
+========================================================================== */
+
+.c-pagination,
+.c-pagination__nav-links,
+.c-pagination__button span,
+.c-pagination__button a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.c-pagination {
+	margin: spacing(40) 0 0;
+	color: color(foreground--link);
+	font-weight: font-weight(bold);
+	line-height: 1;
+
+	@media (--md-up) {
+		margin-top: spacing(56);
+	}
+}
+
+.c-pagination__nav-links {
+	gap: spacing(16);
+}
+
+.c-pagination__button {
+	> span,
+	a {
+		--color: color(foreground--link);
+		border: solid spacing(2) var(--color);
+		border-radius: 50%;
+		width: spacing(40);
+		height: spacing(40);
+
+		.svg-icon {
+			color: var(--color);
+		}
+	}
+
+	> span {
+		--color: color(base--gray--400);
+	}
+
+	a {
+		&:focus-visible {
+			@mixin focus-outline;
+			@mixin outline-offset;
+		}
+	}
+}
+
+.c-pagination__button--prev {
+	> span,
+	a {
+		.svg-icon {
+			transform: rotate(180deg);
+		}
+	}
+}

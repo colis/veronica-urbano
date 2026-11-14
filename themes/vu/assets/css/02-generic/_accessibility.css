@@ -1,0 +1,28 @@
+/* ==========================================================================
+ACCESSIBILITY UTILITIES
+========================================================================== */
+
+.screen-reader-text,
+.hide-visually,
+.sr-only {
+	@mixin screen-reader-text;
+}
+
+.screen-reader-text:focus {
+	display: block;
+	top: 5px;
+	left: 5px;
+	z-index: 100000;
+	clip-path: none;
+	box-shadow: 0 0 spacing(2) spacing(2) rgba(0, 0, 0, 0.6);
+	border-radius: radius(sm);
+	background-color: color(white);
+	padding: spacing(16) spacing(24);
+	width: auto;
+	height: auto;
+	color: color(black);
+	font-weight: font-weight(bold);
+	font-size: font-size(16);
+	line-height: normal;
+	text-decoration: none;
+}

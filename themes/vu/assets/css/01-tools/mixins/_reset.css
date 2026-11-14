@@ -1,0 +1,90 @@
+/* ==========================================================================
+RESET
+
+Example usage:
+
+.my-class {
+	@mixin reset-all;
+}
+========================================================================== */
+
+/**
+ * Reset all padding and margin
+ */
+@define-mixin reset-all {
+	margin: 0;
+	padding: 0;
+}
+
+/**
+ * This mixin can be used to reset the appearance of a list element (ul, ol)
+ */
+@define-mixin reset-list-style {
+	@mixin reset-all;
+	list-style: none;
+}
+
+/**
+ * This mixin can be used to remove the default list styling.
+ */
+@define-mixin reset-list-item {
+	margin: 0;
+	padding-left: 0;
+
+	&::before {
+		display: none;
+	}
+}
+
+/**
+ * This mixin can be used to reset the appearance
+ * of an input[type="submit"] element
+ */
+@define-mixin reset-appearance {
+	appearance: none;
+}
+
+/**
+ * This mixin can be used to reset the appearance of a <button> element
+ */
+@define-mixin reset-button {
+	appearance: none;
+	cursor: pointer;
+	border: none;
+	background: none;
+	padding: 0;
+}
+
+/**
+ * This mixin can be used to remove the default anchor styling.
+ */
+@define-mixin reset-link {
+	padding: 0;
+
+	&:hover {
+		background: none;
+	}
+}
+
+/**
+ * This mixin can be used to reset a form fieldset element.
+ */
+@define-mixin reset-fieldset {
+	@mixin reset-all;
+	border: none;
+}
+
+/**
+ * This mixin can be used to reset a screen reader text element.
+ */
+@define-mixin reset-screen-reader-text {
+	position: initial !important;
+	clip-path: unset;
+	margin: unset;
+	border: unset;
+	padding: unset;
+	width: unset;
+	height: unset;
+	overflow: unset;
+	overflow-wrap: unset !important;
+}

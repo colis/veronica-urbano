@@ -1,0 +1,52 @@
+/* ==========================================================================
+QUOTE BLOCK
+========================================================================== */
+
+.wp-block-quote {
+	--padding-y: 0;
+	--padding-x: 0;
+	margin-top: spacing-step(60);
+	margin-bottom: spacing-step(60);
+	padding: var(--padding-y) var(--padding-x);
+
+	/* Background Color */
+	&.has-background {
+		--padding-y: spacing(48);
+		--padding-x: spacing(32);
+
+		@media (--md-up) {
+			--padding-y: spacing(80);
+			--padding-x: spacing(48);
+			border-radius: radius(4-xl);
+		}
+
+		@media (--md-down) {
+			@mixin grid-container--full;
+		}
+
+		padding: var(--padding-y) var(--padding-x);
+
+		> * {
+			margin-right: auto;
+			margin-left: auto;
+			max-width: rem(600px);
+		}
+	}
+
+	cite {
+		margin-top: spacing(32);
+
+		&::first-line {
+			font-weight: font-weight(bold);
+			font-size: font-size(18);
+			line-height: 1.9;
+		}
+	}
+}
+
+/* Media & Text block featuring a Quote block */
+.wp-block-media-text {
+	.wp-block-quote {
+		margin: 0;
+	}
+}

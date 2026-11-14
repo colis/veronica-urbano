@@ -1,0 +1,113 @@
+/* ==========================================================================
+FONT FAMILIES
+========================================================================== */
+
+/* Archivo */
+
+@font-face {
+	font-style: normal;
+	font-weight: 400;
+	src: resolve("archivo-regular.eot");
+	src:
+		resolve("archivo-regular.woff2") format("woff2"),
+		resolve("archivo-regular.woff") format("woff"),
+		resolve("archivo-regular.ttf") format("truetype"),
+		resolve("archivo-regular.eot?#iefix") format("embedded-opentype");
+	font-family: Archivo;
+	font-display: swap;
+}
+
+@font-face {
+	font-style: normal;
+	font-weight: 900;
+	src: resolve("archivo-extrabold.eot");
+	src:
+		resolve("archivo-extrabold.woff2") format("woff2"),
+		resolve("archivo-extrabold.woff") format("woff"),
+		resolve("archivo-extrabold.ttf") format("truetype"),
+		resolve("archivo-extrabold.eot?#iefix") format("embedded-opentype");
+	font-family: Archivo;
+	font-display: swap;
+}
+
+/* Instrument Sans */
+
+@font-face {
+	font-style: normal;
+	font-weight: 400;
+	src: resolve("instrument-sans-regular.eot");
+	src:
+		resolve("instrument-sans-regular.woff2") format("woff2"),
+		resolve("instrument-sans-regular.woff") format("woff"),
+		resolve("instrument-sans-regular.ttf") format("truetype"),
+		resolve("instrument-sans-regular.eot?#iefix") format("embedded-opentype");
+	font-family: "Instrument Sans";
+	font-display: swap;
+}
+
+@font-face {
+	font-style: normal;
+	font-weight: 500;
+	src: resolve("instrument-sans-medium.eot");
+	src:
+		resolve("instrument-sans-medium.woff2") format("woff2"),
+		resolve("instrument-sans-medium.woff") format("woff"),
+		resolve("instrument-sans-medium.ttf") format("truetype"),
+		resolve("instrument-sans-medium.eot?#iefix") format("embedded-opentype");
+	font-family: "Instrument Sans";
+	font-display: swap;
+}
+
+@font-face {
+	font-style: normal;
+	font-weight: 600;
+	src: resolve("instrument-sans-medium-bold.eot");
+	src:
+		resolve("instrument-sans-medium-bold.woff2") format("woff2"),
+		resolve("instrument-sans-medium-bold.woff") format("woff"),
+		resolve("instrument-sans-medium-bold.ttf") format("truetype"),
+		resolve("instrument-sans-medium-bold.eot?#iefix") format("embedded-opentype");
+	font-family: "Instrument Sans";
+	font-display: swap;
+}
+
+@font-face {
+	font-style: normal;
+	font-weight: 700;
+	src: resolve("instrument-sans-bold.eot");
+	src:
+		resolve("instrument-sans-bold.woff2") format("woff2"),
+		resolve("instrument-sans-bold.woff") format("woff"),
+		resolve("instrument-sans-bold.ttf") format("truetype"),
+		resolve("instrument-sans-bold.eot?#iefix") format("embedded-opentype");
+	font-family: "Instrument Sans";
+	font-display: swap;
+}
+
+/* JetBrains Mono */
+
+@font-face {
+	font-style: normal;
+	font-weight: 400;
+	src: resolve("jetbrains-mono-regular.eot");
+	src:
+		resolve("jetbrains-mono-regular.woff2") format("woff2"),
+		resolve("jetbrains-mono-regular.woff") format("woff"),
+		resolve("jetbrains-mono-regular.ttf") format("truetype"),
+		resolve("jetbrains-mono-regular.eot?#iefix") format("embedded-opentype");
+	font-family: "JetBrains Mono";
+	font-display: swap;
+}
+
+@font-face {
+	font-style: normal;
+	font-weight: 500;
+	src: resolve("jetbrains-mono-medium.eot");
+	src:
+		resolve("jetbrains-mono-medium.woff2") format("woff2"),
+		resolve("jetbrains-mono-medium.woff") format("woff"),
+		resolve("jetbrains-mono-medium.ttf") format("truetype"),
+		resolve("jetbrains-mono-medium.eot?#iefix") format("embedded-opentype");
+	font-family: "JetBrains Mono";
+	font-display: swap;
+}

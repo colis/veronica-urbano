@@ -1,0 +1,63 @@
+/* ==========================================================================
+BODY
+========================================================================== */
+
+:root {
+	scrollbar-gutter: stable;
+	--wp-admin-bar: 0px; /* stylelint-disable-line length-zero-no-unit */
+	--wp--style--block-gap: spacing(block-gap);
+	--grid-gutter: clamp(20px, 4vw, 56px);
+	--header-banner-height: 0px; /* stylelint-disable-line length-zero-no-unit */
+	--top-bar-border-width: 0px; /* stylelint-disable-line length-zero-no-unit */
+	--top-bar-height: 0px; /* stylelint-disable-line length-zero-no-unit */
+	--header-content-height: spacing(64);
+	--header-total-height: calc(
+		var(--wp-admin-bar) + var(--header-banner-height) +
+			var(--top-bar-border-width) + var(--top-bar-height) +
+			var(--header-content-height)
+	);
+	--wp--preset--spacing--0: 0px;
+
+	@media (prefers-reduced-motion: no-preference) {
+		scroll-behavior: smooth;
+	}
+
+	@mixin mobile-menu-up {
+		--header-content-height: rem(94px);
+	}
+
+	/* Header Sticky - update total header height */
+	&:has(.c-site-header.is-sticky) {
+		@mixin mobile-menu-down {
+			--header-total-height: calc(
+				var(--wp-admin-bar) + var(--header-banner-height) +
+					var(--header-content-height)
+			);
+		}
+	}
+
+	/* Header Top Bar - set height */
+	&:has(.c-site-header__top) {
+		--top-bar-border-width: spacing(1);
+		--top-bar-height: calc(spacing(56) + var(--top-bar-border-width));
+
+		@mixin mobile-menu-up {
+			--top-bar-height: calc(spacing(40) + var(--top-bar-border-width));
+		}
+	}
+
+	/* WP Admin Bar - set height of bar for logged in users */
+	&:has(.admin-bar) {
+		--wp-admin-bar: 32px;
+
+		@media screen and (max-width: 782px) {
+			--wp-admin-bar: 46px;
+		}
+	}
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-variant-ligatures: none;
+}

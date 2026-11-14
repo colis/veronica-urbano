@@ -1,0 +1,18 @@
+/* ==========================================================================
+ROUNDED CORNERS
+
+Example usage:
+
+.wp-block-column {
+	@mixin rounded-corners;
+}
+========================================================================== */
+
+@define-mixin rounded-corners {
+	border-radius: radius(2-xl);
+	overflow: hidden;
+
+	@media (--md-up) {
+		border-radius: radius(4-xl);
+	}
+}

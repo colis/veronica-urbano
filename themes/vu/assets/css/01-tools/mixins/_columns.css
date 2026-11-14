@@ -1,0 +1,25 @@
+/* ==========================================================================
+COLUMNS
+
+Example usage:
+
+.my-class {
+	@media (--lg-down) {
+		@mixin break-wp-columns;
+	}
+}
+========================================================================== */
+
+/*------------------------------------
+Break WP Columns Block
+------------------------------------*/
+
+@define-mixin break-wp-columns {
+	.wp-block-columns {
+		flex-wrap: wrap !important;
+	}
+
+	.wp-block-column {
+		flex-basis: 100% !important;
+	}
+}

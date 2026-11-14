@@ -1,0 +1,48 @@
+/* ==========================================================================
+GROUP BLOCK
+========================================================================== */
+
+.wp-block-group {
+	&.alignfull {
+		padding-right: grid(gutter);
+		padding-left: grid(gutter);
+
+		&:has(> .wp-block-group.has-background) {
+			padding-right: 0;
+			padding-left: 0;
+		}
+	}
+
+	&.is-layout-flex {
+		> * {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
+
+	/*
+	Patch images.
+	Keep this rule before .is-mobile-sticky, so its fixed position wins.
+	Layout styles add margins to all children, which move the patch images.
+	*/
+	&:has(> .c-patch-image) {
+		position: relative;
+
+		> .c-patch-image {
+			margin: 0 !important;
+		}
+	}
+
+	/* Mobile Sticky */
+	&.is-mobile-sticky {
+		@media (--md-down) {
+			position: fixed;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 1000;
+			border-top: spacing(1) solid color(base--gray--400);
+			background-color: white;
+		}
+	}
+}

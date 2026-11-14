@@ -1,0 +1,140 @@
+/* ==========================================================================
+BUTTONS BLOCK
+========================================================================== */
+
+.wp-block-buttons {
+	--wp--custom--spacings--block-gap: spacing(16);
+
+	&:empty {
+		display: none;
+	}
+
+	.wp-block-button {
+		display: inline-flex;
+
+		/* Default: Primary (Fill) */
+		.wp-block-button__link {
+			@mixin button;
+		}
+
+		/* Style: Secondary (Outline) */
+		&.is-style-outline {
+			.wp-block-button__link {
+				@mixin button-outline;
+			}
+		}
+
+		/* Style: Text Only */
+		&.is-style-text {
+			.wp-block-button__link {
+				@mixin button-text;
+			}
+		}
+
+		/* Has Min Width */
+		&.has-min-width {
+			min-width: 100%;
+
+			@media (--md-up) {
+				min-width: custom(misc--button-min-width);
+			}
+
+			.wp-block-button__link {
+				width: 100%;
+			}
+		}
+
+		/* Has Icon */
+		&.has-icon {
+			.wp-block-button__link {
+				&::before,
+				&::after {
+					@mixin inline-icon-pseudo;
+					background-color: var(--text-color);
+					display: none;
+				}
+			}
+
+			&.has-icon-leading {
+				.wp-block-button__link::before {
+					display: block;
+				}
+			}
+
+			&.has-icon-trailing {
+				.wp-block-button__link::after {
+					display: block;
+				}
+			}
+		}
+	}
+
+	/* Hero Order Buttons */
+	&.hero-order-buttons {
+		--button-max-width: rem(250px);
+		flex-direction: column;
+		gap: spacing(16);
+		width: 100%;
+
+		@media (--gutenberg-up) {
+			flex-direction: row;
+		}
+
+		.wp-block-button {
+			flex: 1;
+			width: 100%;
+			height: 100%;
+
+			@media (--gutenberg-up) {
+				max-width: var(--button-max-width);
+			}
+
+			&:first-child:last-child {
+				@media (--gutenberg-up) {
+					flex: none;
+					width: auto;
+					min-width: var(--button-max-width);
+					max-width: unset;
+				}
+			}
+		}
+
+		.wp-block-button__link {
+			--text-color: color(button--secondary--background--rest);
+			--padding-y: 0px; /* stylelint-disable-line length-zero-no-unit */
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: spacing(4);
+			box-shadow: custom(misc--box-shadow);
+			border-bottom: spacing(2) dotted transparent;
+			border-radius: radius(xl);
+			width: 100%;
+			min-height: spacing(64);
+			font-weight: font-weight(bold);
+			line-height: 1.15;
+			text-decoration: none;
+		}
+	}
+}
+
+/* Dark Background Colors */
+.has-brand-aubergine-background-color {
+	&:not(:has(.has-white-background-color)) {
+		.wp-block-button .wp-block-button__link {
+			&:hover,
+			&:focus-visible {
+				outline-color: color(white);
+			}
+		}
+	}
+}
+
+/* Paragraph and sibling button */
+p + .wp-block-buttons {
+	margin-top: spacing(24);
+
+	@media (--md-up) {
+		margin-top: spacing(32);
+	}
+}

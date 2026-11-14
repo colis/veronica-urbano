@@ -1,0 +1,12 @@
+/* ==========================================================================
+CONTAINER UTILITY CLASSES
+========================================================================== */
+
+.container {
+	@mixin grid-container;
+
+	/* The container for wrapping full width content blocks. */
+	&--negative {
+		@mixin grid-container--full;
+	}
+}

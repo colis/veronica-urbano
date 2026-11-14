@@ -1,0 +1,64 @@
+/* ==========================================================================
+GRID
+
+Example usage:
+
+.my-class {
+	@mixin grid-container;
+}
+
+.my-class {
+	@mixin grid-container--wide;
+}
+
+.my-class {
+	@mixin grid-container--full;
+}
+
+.my-class {
+	@mixin grid-columns 4, 1fr;
+	@mixin grid-rows 2, minmax(rem(224px), fr);
+}
+========================================================================== */
+
+@define-mixin grid-container {
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: grid(gutter);
+	padding-left: grid(gutter);
+	width: 100%;
+	max-width: grid(width-full);
+}
+
+@define-mixin grid-container--wide {
+	--gutter-total: calc(grid(gutter) * 2);
+	--wide-width: min(grid(width-wide), calc(100vw - var(--gutter-total)));
+	--wide-width-margin: calc(var(--wide-width) / 2);
+	--margin: calc(50% - var(--wide-width-margin));
+	margin-right: var(--margin);
+	margin-left: var(--margin);
+	width: var(--wide-width);
+	max-width: var(--wide-width);
+}
+
+@define-mixin grid-container--full {
+	--margin: calc(50% - 50vw);
+	margin-right: var(--margin);
+	margin-left: var(--margin);
+	padding-right: 0;
+	padding-left: 0;
+	width: 100vw;
+	max-width: 100vw;
+}
+
+@define-mixin grid-columns $columns: 2, $size: 1fr {
+	display: grid;
+	grid-template-columns: repeat($columns, $size);
+	gap: spacing(block-gap);
+}
+
+@define-mixin grid-rows $rows: 2, $size: 1fr {
+	display: grid;
+	grid-template-rows: repeat($rows, $size);
+	gap: spacing(block-gap);
+}
