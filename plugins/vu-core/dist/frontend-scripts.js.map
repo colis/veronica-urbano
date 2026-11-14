@@ -1,1 +1,0 @@
-{"version":3,"file":"frontend-scripts.js","mappings":";;;;AAAA;AACA;AACA;;AAEA,iC","sources":["webpack://veronica-urbano/./plugins/vu-core/assets/js/frontend/frontend.js"],"sourcesContent":["/**\n * Core Related Scripts\n */\n\n// import './components/example';\n"],"names":[],"sourceRoot":""}
