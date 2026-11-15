@@ -31,8 +31,8 @@
 		"php": ">=8.4.27",
 		"johnbillion/extended-cpts": "^5.1",
 		"league/container": "^5.0",
-		"wpackagist-plugin/advanced-custom-fields": "^6.0",
 		"wpackagist-plugin/imagify": "^2.0",
+		"wpackagist-plugin/safe-svg": "^2.5",
 		"wpackagist-plugin/wordfence": "^9.0",
 		"wpackagist-plugin/wordpress-seo": "^28.0"
 	},
@@ -68,6 +68,7 @@
 			"plugins/vu-core/includes/functions/global.php"
 		],
 		"psr-4": {
+			"VUBlocks\\": "plugins/vu-blocks/includes/classes",
 			"VUCore\\": "plugins/vu-core/includes/classes",
 			"VUTheme\\": "themes/vu/includes/classes"
 		}

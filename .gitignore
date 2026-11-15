@@ -125,64 +125,56 @@ auth.json
 vendor/
 
 ### WordPress ###
-/index.php
-/license.txt
-/readme.html
-/wp-*.php
-/xmlrpc.php
-/sitemap.xml
-/wp-admin/
-/wp-includes/
-/index.php
-/plugins/index.php
-/themes/index.php
-/themes/twenty*/
-/blogs.dir/
-/cache/
-/languages/
-/upgrade/
-/uploads/
-/install.php
-/db.php
+license.txt
+readme.html
+wp-*.php
+xmlrpc.php
+sitemap.xml
+wp-admin/
+wp-includes/
+themes/twenty*/
+blogs.dir/
+cache/
+languages/
+upgrade/
+uploads/
+install.php
+db.php
 
 ### WPEngine ###
 .htaccess
-/advanced-cache.php
-/object-cache.php
-/backup*
-/mu-plugins/force-strong-passwords/
-/mu-plugins/mu-plugin.php
-/mu-plugins/slt-force-strong-passwords.php
-/mu-plugins/stop-long-comments.php
-/mu-plugins/wpengine-common/
+advanced-cache.php
+object-cache.php
+backup*
+mu-plugins/force-strong-passwords/
+mu-plugins/mu-plugin.php
+mu-plugins/slt-force-strong-passwords.php
+mu-plugins/stop-long-comments.php
+mu-plugins/wpengine-common/
 
 ### Misc ###
 *.mmdb
 srdb*/
 
 ### Standard project files. ###
-/node_modules/
+node_modules/
 asset-manifest.json
 
 ### Themes ###
 themes/*
 !themes/vu/
+themes/vu/dist/
 
 ### Plugins ###
 # All plugins, except project specific (the rest should be handled by composer)
-/mu-plugins/*
-!/mu-plugins/1-loader.php
-/plugins/*
-!/plugins/vu-*/
-!/plugins/gravityforms/
-!/plugins/gravityforms/js/vendor
-!/plugins/gravityforms/vendor
-!/plugins/gravityformsrecaptcha/
-
-########################################################
-# Add your project-specific ignore files here!
-########################################################
-
-### Theme assets ###
-# VU theme
-/themes/vu/dist/
+mu-plugins/*
+!mu-plugins/1-loader.php
+plugins/*
+!plugins/vu-*/
+plugins/vu-*/dist
+!plugins/advanced-custom-fields-pro/
+!plugins/advanced-custom-fields-pro/vendor
+!plugins/gravityforms/
+!plugins/gravityforms/js/vendor
+!plugins/gravityforms/vendor
+!plugins/gravityformsrecaptcha/
