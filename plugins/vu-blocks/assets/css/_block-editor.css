@@ -1,0 +1,34 @@
+/* ==========================================================================
+BLOCK EDITOR
+========================================================================== */
+
+/*
+Responsive image fix when editing Patterns.
+Affected MobileImage and PatchImage components.
+*/
+.edit-site img {
+	max-width: 100%;
+	height: auto;
+}
+
+/*
+ * Show registered pattern titles under the thumbnail, like database patterns.
+ *
+ * In the inserter's category panel and "Change design", core only shows a
+ * registered pattern's title as a hover tooltip (database patterns always
+ * print it). The item's aria-label is the pattern title, so print that
+ * wherever core hasn't rendered a visible title.
+ */
+.block-editor-block-patterns-list__item:not(
+	:has(.block-editor-block-patterns-list__item-title)
+) {
+	&::after {
+		display: block;
+		padding-top: 8px;
+		content: attr(aria-label);
+		color: #1e1e1e;
+		font-size: 13px;
+		line-height: 1.4;
+		text-align: left;
+	}
+}

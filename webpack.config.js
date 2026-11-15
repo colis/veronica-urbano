@@ -116,7 +116,13 @@ const blocksPluginConfig = {
 	...blocksConfig,
 	entry: {
 		...entry,
+		'_admin/icon-preview/index': [
+			`${blocksPluginPath}/assets/js/admin/icon-preview/index.js`,
+			`${blocksPluginPath}/assets/css/admin/icon-preview/index.css`,
+		],
+		'_extensions/index': `${blocksPluginPath}/src/_extensions/index.js`,
 		'blocks-scripts': [`${blocksPluginPath}/assets/js/blocks-scripts.js`],
+		'blocks-styles': [`${blocksPluginPath}/assets/css/blocks-styles.css`],
 	},
 	output: {
 		path: path.resolve(__dirname, `${blocksPluginPath}/dist/`),

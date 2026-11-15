@@ -1,0 +1,91 @@
+/* ==========================================================================
+INSPECTOR CONTROLS
+========================================================================== */
+
+/* Correct a Gutenberg issue with input boxes within Inspector Controls */
+.components-panel .block-editor-link-control {
+	min-width: 100%;
+}
+
+/* Force block setting UI input fields to be 100% width */
+.components-panel__row {
+	> .components-base-control,
+	> .components-form-token-field {
+		width: 100%;
+	}
+}
+
+/* Full Width Control */
+.full-width-control {
+	grid-column: 1 / -1;
+
+	&.separator {
+		margin-top: spacing(16);
+		border-top: 1px solid rgb(221, 221, 221);
+		padding-top: spacing(16);
+	}
+
+	+ .full-width-control {
+		margin-top: spacing(10);
+	}
+}
+
+/* Link Control */
+.editor-sidebar .block-editor-link-control__field {
+	margin: 0;
+	padding: 0;
+	min-width: unset;
+}
+
+/* TimePicker */
+.editor-sidebar [class*="components-datetime"] {
+	margin-bottom: 0;
+}
+
+/* Block Render Appender */
+.block-list-appender.wp-block {
+	&:not(:has(.block-editor-inserter, .block-list-appender__toggle)) {
+		bottom: calc(80px * -1);
+
+		.components-button.block-editor-button-block-appender {
+			height: spacing(48);
+		}
+	}
+}
+
+/* Preview block button */
+.components-button.has-icon.preview-mode {
+	display: flex;
+	position: absolute;
+	right: 60px;
+	bottom: -1px;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	z-index: 5;
+	border: solid spacing(1) color(white);
+	border-radius: radius(xs);
+	background: #1e1e1e;
+	padding: 12px;
+	width: 48px;
+	height: auto;
+	color: color(white);
+}
+
+/* ComboboxControl Suggestions List height */
+.components-form-token-field__suggestions-list {
+	max-height: rem(324px);
+
+	.components-form-token-field__suggestion {
+		> span {
+			word-break: normal;
+			overflow-wrap: break-word;
+		}
+	}
+}
+
+.components-form-token-field__token-text {
+	> span {
+		white-space: normal;
+	}
+}

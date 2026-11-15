@@ -7,9 +7,11 @@
 
 namespace VUBlocks;
 
+use VUBlocks\Admin\IconPreview;
 use VUBlocks\Blocks\Extensions\{
 	Button,
 	Cover,
+	Extensions,
 	Image,
 	ListBlock,
 	MediaText,
@@ -71,6 +73,12 @@ class Plugin extends BaseAbstract {
 		add_action( 'admin_menu', [ $this->app->get( BlockEditor::class ), 'add_patterns_admin_menu_items' ] );
 		// Register custom block pattern categories.
 		add_action( 'init', [ $this->app->get( BlockEditor::class ), 'register_block_pattern_categories' ] );
+
+		// Block Extensions.
+		add_action( 'enqueue_block_editor_assets', [ $this->app->get( Extensions::class ), 'register_extensions' ] );
+
+		// Post Blocks.
+		add_action( 'admin_enqueue_scripts', [ $this->app->get( IconPreview::class ), 'register_scripts' ] );
 
 		// Core.
 		add_action( 'enqueue_block_editor_assets', [ $this->app->get( Core::class ), 'dequeue_core_block_theme_editor_styles' ], PHP_INT_MAX );

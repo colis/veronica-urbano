@@ -1,0 +1,48 @@
+/* ==========================================================================
+FORMATS
+========================================================================== */
+
+.wp-block {
+	&.screen-reader-text,
+	.screen-reader-text {
+		position: relative;
+		opacity: 0.75;
+		clip-path: none;
+		margin: 0;
+		width: auto;
+		height: auto;
+		overflow: visible;
+
+		/* Override default block editor styles to unhide span */
+		.no-wrap {
+			position: unset;
+			clip-path: unset;
+			margin: unset;
+			border: unset;
+			padding: unset;
+			overflow: unset;
+		}
+	}
+
+	&:has(.is-selected),
+	&.is-selected,
+	.is-selected {
+		.no-wrap {
+			outline: dotted spacing(2) currentcolor;
+			outline-offset: spacing(1);
+		}
+
+		&.screen-reader-text,
+		.screen-reader-text {
+			top: 0;
+			left: 0;
+			opacity: 1;
+			background-color: transparent;
+			padding: 0;
+
+			&.wp-block-heading {
+				color: color(heading);
+			}
+		}
+	}
+}

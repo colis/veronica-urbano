@@ -1,0 +1,79 @@
+/* ==========================================================================
+ICON REGISTRY MODAL
+========================================================================== */
+
+.components-modal__content:has(.vu-icon-registry-modal) {
+	padding-top: 0;
+}
+
+.vu-icon-registry-modal__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	gap: spacing(12);
+	margin-bottom: spacing(32);
+}
+
+.vu-icon-registry-modal__search {
+	flex: 1;
+}
+
+.vu-icon-registry-modal__trigger-row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: spacing(12);
+}
+
+.vu-icon-registry-modal__section {
+	margin-bottom: spacing(16);
+}
+
+.vu-icon-registry-modal__category {
+	position: sticky;
+	top: 0;
+	z-index: 1;
+	margin: 0 0 spacing(16);
+	border-bottom: spacing(1) solid #ccc; /* Gray 400 */
+	background-color: #fff;
+	padding: spacing(16) 0;
+	color: #1e1e1e;
+}
+
+.vu-icon-registry-modal__grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(rem(168px), 1fr));
+	gap: spacing(12);
+}
+
+.vu-icon-registry-modal__item.components-button {
+	--wp-components-color-accent: #ccc; /* Gray 400 */
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	gap: spacing(8);
+	border-radius: spacing(4);
+	padding: spacing(12);
+	width: 100%;
+	height: auto;
+	color: #1e1e1e !important;
+	text-align: center;
+
+	&:hover {
+		--wp-components-color-accent-darker-20: #dd0031; /* Brand Red - Red 600 */
+		background-color: #f7f7f7 !important; /* Gray 050 */
+	}
+
+	/* Selected */
+	&.is-primary {
+		outline: solid spacing(1) #dd0031; /* Brand Red - Red 600 */
+		outline-offset: spacing(negative-1);
+		background-color: rgba(
+			221,
+			0,
+			49,
+			0.1
+		) !important; /* Brand Red - Red 600 10% */
+	}
+}

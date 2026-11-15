@@ -1,0 +1,9 @@
+/**
+ * Blocks Related Styles
+ */
+
+@import "_block-editor.css";
+@import "_buttons.css";
+@import "_formats.css";
+@import "_icon-registry-modal.css";
+@import "_inspector-controls.css";

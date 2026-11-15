@@ -1,0 +1,15 @@
+/* ==========================================================================
+BUTTONS
+========================================================================== */
+
+.wp-block {
+	.button {
+		&:hover,
+		&:focus-visible {
+			box-shadow: none;
+			border-color: transparent;
+			background: transparent;
+			color: color(button--text-only--foreground--hover);
+		}
+	}
+}

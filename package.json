@@ -36,12 +36,17 @@
 		"url": "https://github.com/colis/veronica-urbano"
 	},
 	"devDependencies": {
+		"@10up/block-components": "^1.23.0",
 		"@csstools/postcss-global-data": "^4.0.0",
 		"@lehoczky/postcss-fluid": "^1.0.3",
 		"@wordpress/block-editor": "^20.0.0",
 		"@wordpress/blocks": "^17.1.0",
+		"@wordpress/components": "^44.0.0",
+		"@wordpress/data": "^11.1.0",
 		"@wordpress/dom-ready": "^5.1.0",
+		"@wordpress/element": "^10.1.0",
 		"@wordpress/eslint-plugin": "^28.1.0",
+		"@wordpress/html-entities": "^5.1.0",
 		"@wordpress/i18n": "^7.1.0",
 		"@wordpress/icons": "^20.0.0",
 		"@wordpress/rich-text": "^8.1.0",

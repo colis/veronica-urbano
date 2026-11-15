@@ -8,6 +8,7 @@
 namespace VUBlocks\Core;
 
 use VUCore\BaseAbstract;
+use VUCore\Core\Icon;
 
 use WP_Block_Editor_Context, WP_Block_Type_Registry;
 
@@ -52,12 +53,15 @@ class BlockEditor extends BaseAbstract {
 
 		$script_name = 'vu-blocks-scripts';
 
-		$js_file = 'dist/blocks-scripts.js';
+		$js_file  = 'dist/blocks-scripts.js';
+		$css_file = 'dist/blocks-styles.css';
 
-		$js_fileuri = VU_BLOCKS_URL . $js_file;
+		$js_fileuri  = VU_BLOCKS_URL . $js_file;
+		$css_fileuri = VU_BLOCKS_URL . $css_file;
 
 		// Automatically load dependencies and version.
-		$js_asset_file = include VU_BLOCKS_PATH . 'dist/blocks-scripts.asset.php';
+		$js_asset_file  = include VU_BLOCKS_PATH . 'dist/blocks-scripts.asset.php';
+		$css_asset_file = include VU_BLOCKS_PATH . 'dist/blocks-styles.asset.php';
 
 		wp_enqueue_script(
 			$script_name,
@@ -65,6 +69,27 @@ class BlockEditor extends BaseAbstract {
 			$js_asset_file['dependencies'],
 			$js_asset_file['version'],
 			true
+		);
+
+		// Icons.
+		$vu_icons     = class_exists( Icon::class ) ? Icon::$vu_icons : [];
+		$custom_icons = class_exists( Icon::class ) ? Icon::get_custom_icons() : [];
+
+		wp_add_inline_script(
+			$script_name,
+			'const vuCore = ' . wp_json_encode(
+				[
+					'vuIcons' => array_merge( $vu_icons, $custom_icons ),
+				]
+			),
+			'before',
+		);
+
+		wp_enqueue_style(
+			'vu-blocks-styles',
+			$css_fileuri,
+			$css_asset_file['dependencies'],
+			$css_asset_file['version']
 		);
 	}
 

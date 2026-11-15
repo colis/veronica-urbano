@@ -50,6 +50,6 @@ $copyright_text = get_field( 'footer_copyright_text', 'option' ) ?: '';
 	</div>
 
 	<a href="https://github.com/colis" target="_blank">
-		<?php esc_html_e( 'Developer by a lazy programmer', 'vu' ); ?>
+		<?php esc_html_e( 'Developed by a lazy programmer', 'vu' ); ?>
 	</a>
 </div>
