@@ -5,12 +5,6 @@ Example usage:
 
 <p class="eyebrow">Eyebrow Text</p>
 
-<p class="eyebrow-caps">Eyebrow (Caps) Text</p>
-
-<p class="ribbon">Ribbon Text</p>
-
-<p class="tag">Tag Text</p>
-
 <p class="has-11-font-size">11px Text</p>
 
 <p><span class="no-wrap">No Wrap</span> Text</p>
@@ -26,36 +20,6 @@ Example usage:
 		&.has-white-color {
 			@mixin eyebrow-light;
 		}
-	}
-
-	.eyebrow-caps,
-	.is-style-eyebrow-caps {
-		@mixin eyebrow-caps;
-
-		&.has-white-color {
-			@mixin eyebrow-caps-light;
-		}
-
-		&.has-11-font-size {
-			font-weight: typography(eyebrow-caps--font-weight);
-			letter-spacing: typography(eyebrow-caps--letter-spacing);
-		}
-	}
-
-	.ribbon,
-	.is-style-ribbon,
-	p.is-style-ribbon {
-		@mixin ribbon;
-
-		&.has-brand-raspberry-color {
-			@mixin ribbon-light;
-		}
-	}
-
-	.tag,
-	.is-style-tag,
-	p.is-style-tag {
-		@mixin tag;
 	}
 
 	/* Font Sizes */

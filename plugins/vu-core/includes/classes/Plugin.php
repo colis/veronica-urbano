@@ -70,6 +70,7 @@ class Plugin extends BaseAbstract {
 		}
 
 		// Acf.
+		add_action( 'acf/init', [ $this->app->get( Acf::class ), 'register_acf_settings_page' ] );
 		add_action( 'acf/init', [ $this->app->get( Acf::class ), 'register_acf_local_fields' ] );
 
 		// Load text domain.

@@ -19,6 +19,19 @@ FONT FAMILIES
 
 @font-face {
 	font-style: normal;
+	font-weight: 700;
+	src: resolve("archivo-bold.eot");
+	src:
+		resolve("archivo-bold.woff2") format("woff2"),
+		resolve("archivo-bold.woff") format("woff"),
+		resolve("archivo-bold.ttf") format("truetype"),
+		resolve("archivo-bold.eot?#iefix") format("embedded-opentype");
+	font-family: Archivo;
+	font-display: swap;
+}
+
+@font-face {
+	font-style: normal;
 	font-weight: 900;
 	src: resolve("archivo-extrabold.eot");
 	src:
@@ -40,7 +53,8 @@ FONT FAMILIES
 		resolve("instrument-sans-regular.woff2") format("woff2"),
 		resolve("instrument-sans-regular.woff") format("woff"),
 		resolve("instrument-sans-regular.ttf") format("truetype"),
-		resolve("instrument-sans-regular.eot?#iefix") format("embedded-opentype");
+		resolve("instrument-sans-regular.eot?#iefix")
+			format("embedded-opentype");
 	font-family: "Instrument Sans";
 	font-display: swap;
 }
@@ -66,7 +80,8 @@ FONT FAMILIES
 		resolve("instrument-sans-medium-bold.woff2") format("woff2"),
 		resolve("instrument-sans-medium-bold.woff") format("woff"),
 		resolve("instrument-sans-medium-bold.ttf") format("truetype"),
-		resolve("instrument-sans-medium-bold.eot?#iefix") format("embedded-opentype");
+		resolve("instrument-sans-medium-bold.eot?#iefix")
+			format("embedded-opentype");
 	font-family: "Instrument Sans";
 	font-display: swap;
 }

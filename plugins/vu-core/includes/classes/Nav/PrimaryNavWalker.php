@@ -70,12 +70,6 @@ class PrimaryNavWalker extends Walker_Nav_Menu {
 		}
 		$indent = str_repeat( $t, $depth );
 
-		// Maybe add widgets before closing the submenu.
-		$widget_content = $this->get_submenu_widgets( $args );
-		if ( $widget_content ) {
-			$output .= $widget_content;
-		}
-
 		$output .= "{$indent}</ul>{$n}";
 	}
 
@@ -95,53 +89,5 @@ class PrimaryNavWalker extends Walker_Nav_Menu {
 		$args->current_item_id = $item->ID;
 
 		parent::start_el( $output, $item, $depth, $args, $id );
-	}
-
-	/**
-	 * Get widgets for a menu item.
-	 *
-	 * @param stdClass $args An object of wp_nav_menu() arguments.
-	 *
-	 * @return string HTML for widget list items.
-	 */
-	private function get_submenu_widgets( $args ): string {
-		if ( ! isset( $args->menu_item_parent ) || ! $args->menu_item_parent ) {
-			return '';
-		}
-
-		// Check if the parent menu item has widgets enabled.
-		$has_widgets = get_field( 'nav_item_widgets', $args->menu_item_parent ) ?: false;
-
-		if ( empty( $has_widgets ) ) {
-			return '';
-		}
-
-		// Get the submenu widgets from site options.
-		$widgets = get_field( 'header_nav_widgets', 'option' )['widgets'] ?? [];
-
-		if ( empty( $widgets ) ) {
-			return '';
-		}
-
-		// Build the widgets markup.
-		$widget_html = '<li class="menu-item c-menu-item-widgets">' . "\n";
-
-		if ( ! empty( $widgets['label'] ) ) {
-			$widget_html .= '<div class="c-menu-item-widgets__label">' . esc_html( $widgets['label'] ) . '</div>' . "\n";
-		}
-
-		$widget_html .= '<div class="c-menu-item-widgets__widgets">' . "\n";
-
-		foreach ( $widgets as $widget ) {
-			$widget_html .= '<a href="' . esc_url( $widget['link']['url'] ) . '" class="c-menu-item-widget__widget">' . "\n";
-			$widget_html .= '<div class="c-menu-item-widget__widget--image"><img data-src="' . esc_url( wp_get_attachment_image_url( $widget['image'], 'medium' ) ) . '" alt=""></div>' . "\n";
-			$widget_html .= '<div class="c-menu-item-widget__widget--title">' . esc_html( $widget['link']['title'] ) . '</div>' . "\n";
-			$widget_html .= '</a>' . "\n";
-		}
-
-		$widget_html .= '</div>' . "\n";
-		$widget_html .= '</li>' . "\n";
-
-		return $widget_html;
 	}
 }

@@ -23,7 +23,7 @@ BODY
 	}
 
 	@mixin mobile-menu-up {
-		--header-content-height: rem(94px);
+		--header-content-height: rem(85px);
 	}
 
 	/* Header Sticky - update total header height */

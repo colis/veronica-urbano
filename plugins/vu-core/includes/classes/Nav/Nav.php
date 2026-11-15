@@ -19,11 +19,10 @@ class Nav extends BaseAbstract {
 	/**
 	 * Define constants.
 	 */
-	const PRIMARY_NAV  = 'primary';
-	const FOOTER_1_NAV = 'footer-1';
-	const FOOTER_2_NAV = 'footer-2';
-	const FOOTER_3_NAV = 'footer-3';
-	const LEGAL_NAV    = 'legal';
+	const PRIMARY_NAV   = 'primary';
+	const FOOTER_1_NAV  = 'footer-1';
+	const FOOTER_2_NAV  = 'footer-2';
+	const COPYRIGHT_NAV = 'copyright';
 
 	/**
 	 * ID for a primary nav top-level submenu list element.
@@ -44,11 +43,10 @@ class Nav extends BaseAbstract {
 	public function register_nav_menus(): void {
 		register_nav_menus(
 			[
-				self::PRIMARY_NAV  => __( 'Primary Navigation', 'vu-core' ),
-				self::FOOTER_1_NAV => __( 'Footer One Navigation', 'vu-core' ),
-				self::FOOTER_2_NAV => __( 'Footer Two Navigation', 'vu-core' ),
-				self::FOOTER_3_NAV => __( 'Footer Three Navigation', 'vu-core' ),
-				self::LEGAL_NAV    => __( 'Legal Navigation', 'vu-core' ),
+				self::PRIMARY_NAV   => __( 'Primary Navigation', 'vu-core' ),
+				self::FOOTER_1_NAV  => __( 'Footer One Navigation', 'vu-core' ),
+				self::FOOTER_2_NAV  => __( 'Footer Two Navigation', 'vu-core' ),
+				self::COPYRIGHT_NAV => __( 'Footer Copyright', 'vu-core' ),
 			],
 		);
 	}

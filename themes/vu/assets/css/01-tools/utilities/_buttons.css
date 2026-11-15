@@ -11,10 +11,6 @@ Secondary button
 ----------------------------
 <a href="#" class="vu-button button-outline">Button Text</a>
 
-Tertiary button
-----------------------------
-<a href="#" class="vu-button button-tertiary">Button Text</a>
-
 Text Only button
 ----------------------------
 <a href="#" class="vu-button button-text">Button Text</a>
@@ -40,14 +36,6 @@ Secondary (Outline)
 
 .button-outline {
 	@mixin button-outline;
-}
-
-/*------------------------------------
-Tertiary
-------------------------------------*/
-
-.button-tertiary {
-	@mixin button-tertiary;
 }
 
 /*------------------------------------

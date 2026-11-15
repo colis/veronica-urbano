@@ -41,7 +41,7 @@ PRIMARY NAVIGATION
 		a,
 		.menu-item-toggle {
 			cursor: pointer;
-			color: color(brand--raspberry);
+			color: color(brand--aubergine);
 			font-weight: font-weight(bold);
 			letter-spacing: 0;
 			text-decoration: none;
@@ -66,6 +66,8 @@ PRIMARY NAVIGATION
 			&.active > .menu-item-toggle,
 			> a:hover,
 			> .menu-item-toggle:hover {
+				color: color(brand--raspberry);
+
 				span::before {
 					width: 100%;
 				}
@@ -236,14 +238,10 @@ PRIMARY NAVIGATION
 	}
 }
 
-/* Rewards mobile drawer component is missing or hidden */
 .c-site-header__nav {
-	&:not(:has(.c-site-header__rewards)),
-	&:has(.c-site-header__rewards.hidden) {
-		#header-primary-menu {
-			@mixin mobile-menu-down {
-				margin-top: var(--mobile-drawer-margin-top);
-			}
+	#header-primary-menu {
+		@mixin mobile-menu-down {
+			margin-top: var(--mobile-drawer-margin-top);
 		}
 	}
 }

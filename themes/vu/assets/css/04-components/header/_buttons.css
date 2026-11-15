@@ -9,7 +9,9 @@ HEADER BUTTONS
 }
 
 .c-site-header__button {
-	padding: rem(17px) rem(37.5px);
+	--bg-color: color(brand--raspberry);
+	--height: rem(33px);
+	width: rem(138px);
 
 	@mixin mobile-menu-down {
 		all: unset;
@@ -32,6 +34,8 @@ HEADER BUTTONS
 	&:hover,
 	&:focus-visible,
 	&:active {
+		--bg-color: color(brand--aubergine);
+
 		@mixin mobile-menu-down {
 			background: transparent;
 			color: color(button--text-only--foreground--hover);

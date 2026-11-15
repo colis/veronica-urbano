@@ -16,13 +16,6 @@ Secondary button
 	@mixin button-outline;
 }
 
-Tertiary button
-------------------------
-.my-class {
-	@mixin button;
-	@mixin button-tertiary;
-}
-
 Text Only button
 ------------------------
 .my-class {
@@ -48,7 +41,7 @@ Primary (Fill)
 	--text-color: color(white);
 
 	@mixin inline-icon;
-	@mixin transition single-arg(background, color);
+	@mixin transition background-color;
 	position: relative;
 	justify-content: center;
 	cursor: pointer;
@@ -61,8 +54,8 @@ Primary (Fill)
 	color: var(--text-color);
 	font-weight: typography(button--font-weight);
 	font-size: typography(button--font-size);
-	font-family: typography(button--font-family);
 	line-height: typography(button--line-height);
+	font-family: typography(button--font-family);
 	font-variant-ligatures: none;
 	letter-spacing: typography(button--letter-spacing);
 	text-align: center;
@@ -108,13 +101,13 @@ Secondary (Outline)
 ------------------------------------*/
 
 @define-mixin button-outline {
-	--bg-color: color(button--secondary--background--rest);
+	--bg-color: transparent;
 	--border-color: color(button--secondary--border--default);
 	--text-color: color(button--secondary--foreground--rest);
 	border: var(--border-width) solid var(--border-color);
 	padding-top: calc(var(--padding-y) - var(--border-width));
 	padding-bottom: calc(var(--padding-y) - var(--border-width));
-	font-weight: font-weight(medium);
+	font-weight: font-weight(bold);
 
 	&:hover,
 	&:active {
@@ -137,6 +130,7 @@ Secondary (Outline)
 @define-mixin button-outline-hover {
 	--bg-color: color(button--secondary--background--rest);
 	--border-color: color(button--secondary--border--hover);
+	--text-color: color(button--secondary--foreground--hover);
 	@mixin outline-offset spacing(negative-2);
 	outline: solid var(--border-width) var(--outline-color);
 }
@@ -150,46 +144,6 @@ Secondary (Outline)
 	--border-color: color(button--secondary--border--disabled);
 	--text-color: color(button--secondary--foreground--disabled);
 	outline: none;
-}
-
-/*------------------------------------
-Tertiary
-------------------------------------*/
-
-@define-mixin button-tertiary {
-	@mixin button-outline;
-	--bg-color: color(button--tertiary--background--rest);
-	--border-color: color(button--tertiary--border--default);
-	--text-color: color(button--tertiary--foreground--rest);
-
-	&:hover,
-	&:active,
-	&:focus-visible {
-		--bg-color: color(button--tertiary--background--rest);
-	}
-
-	&:hover {
-		--border-color: color(button--tertiary--border--hover);
-	}
-
-	&:active {
-		--border-color: color(button--tertiary--border--active);
-	}
-
-	&:focus-visible {
-		--border-color: color(button--tertiary--border--focus);
-		@mixin outline-offset spacing(negative-2);
-	}
-
-	&[disabled] {
-		@mixin button-tertiary-disabled;
-	}
-}
-
-@define-mixin button-tertiary-disabled {
-	--bg-color: color(button--tertiary--background--disabled);
-	--border-color: color(button--tertiary--border--disabled);
-	--text-color: color(button--tertiary--foreground--disabled);
 }
 
 /*------------------------------------

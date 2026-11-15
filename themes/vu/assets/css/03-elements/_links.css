@@ -6,6 +6,8 @@ a:where(:not(.wp-element-button, .vu-button)) {
 	@mixin transition color;
 	color: color(foreground--link);
 	text-decoration: underline;
+	text-decoration-thickness: rem(2px);
+	text-underline-offset: rem(3px);
 
 	&:hover,
 	&:focus-visible,

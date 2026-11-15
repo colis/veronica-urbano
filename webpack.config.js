@@ -2,6 +2,7 @@
  * External dependencies
  */
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+import _ from 'lodash';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -20,6 +21,7 @@ const __dirname = path.dirname(__filename);
 const themePath = './themes/vu';
 
 // Plugins.
+const blocksPluginPath = './plugins/vu-blocks';
 const corePluginPath = './plugins/vu-core';
 
 /**
@@ -83,5 +85,43 @@ const corePluginConfig = {
 	},
 };
 
+// Blocks Plugin configuration.
+// CopyWebpackPlugin overrides.
+process.env.WP_SOURCE_PATH = `${blocksPluginPath}/src`;
+process.env.WP_COPY_PHP_FILES_TO_DIST = true;
+
+const copyPluginIndex = defaultConfig.plugins.findIndex(
+	(plugin) => plugin.constructor.name === 'CopyPlugin'
+);
+
+const blocksConfig = _.cloneDeep(defaultConfig);
+
+// Change CopyWebpackPlugin context path.
+blocksConfig.plugins[copyPluginIndex] = new CopyWebpackPlugin({
+	patterns: [
+		...defaultConfig.plugins[copyPluginIndex].patterns.map((pattern) => ({
+			...pattern,
+			context: `${blocksPluginPath}/src`,
+		})),
+	],
+	options: defaultConfig.plugins[copyPluginIndex].options,
+});
+
+const entry = {
+	...blocksConfig.entry(),
+};
+
+// Blocks Plugin Scripts configuration.
+const blocksPluginConfig = {
+	...blocksConfig,
+	entry: {
+		...entry,
+		'blocks-scripts': [`${blocksPluginPath}/assets/js/blocks-scripts.js`],
+	},
+	output: {
+		path: path.resolve(__dirname, `${blocksPluginPath}/dist/`),
+	},
+};
+
 // Process configurations.
-export default [themeConfig, corePluginConfig];
+export default [themeConfig, corePluginConfig, blocksPluginConfig];

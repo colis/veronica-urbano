@@ -14,7 +14,6 @@ SITE BRANDING
 		left: 50%;
 		transform: translate(-50%, 50%);
 		border-radius: radius(full);
-		background-color: color(white);
 		padding: spacing(12);
 	}
 

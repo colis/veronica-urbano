@@ -9,7 +9,7 @@ table {
 ========================================================================== */
 
 @define-mixin table-striped {
-	--border-color: color(base--gray--100);
+	--border-color: color(brand--grey-4);
 	@mixin body-lg;
 	margin: 0;
 	border: none;

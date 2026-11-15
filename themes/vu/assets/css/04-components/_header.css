@@ -3,15 +3,10 @@ HEADER
 ========================================================================== */
 
 /* Default Header */
-@import "header/_banner.css";
 @import "header/_branding.css";
 @import "header/_buttons.css";
 @import "header/_hamburger.css";
 @import "header/_header.css";
-@import "header/_widgets.css";
-
-/* Basic Header */
-@import "header/_basic-header.css";
 
 /* Navigation */
 @import "header/navigation/_mobile-back.css";

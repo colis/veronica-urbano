@@ -3,7 +3,7 @@ HEADER
 ========================================================================== */
 
 .c-site-header {
-	--bg-color: color(white);
+	--bg-color: color(brand--paper);
 	--menu-spacing: spacing(16);
 	--animation-duration: calc(transition(duration) * 2);
 	--mobile-drawer-margin-top: spacing(48);
@@ -18,6 +18,7 @@ HEADER
 
 	@mixin mobile-menu-up {
 		position: sticky;
+		border-bottom: solid spacing(1) color(brand--grey-3);
 	}
 
 	/* Sticky Header (mobile devices only) */
@@ -87,7 +88,7 @@ HEADER
 .c-site-header__nav,
 .c-site-header__nav--inner {
 	display: flex;
-	width: 100%;
+	justify-self: flex-end;
 }
 
 .c-site-header__nav {
@@ -98,8 +99,9 @@ HEADER
 		left: 0;
 		flex-direction: column;
 		gap: spacing(40);
-		background-color: color(white);
+		background-color: color(brand--paper);
 		padding: 0 grid(gutter) grid(gutter);
+		width: 100%;
 		height: calc(
 			100dvh - var(--wp-admin-bar) - var(--header-content-height)
 		);
@@ -113,41 +115,6 @@ HEADER
 		height: 100%;
 		overflow-x: clip;
 		overflow-y: auto;
-	}
-
-	.c-site-header__rewards {
-		margin-top: var(--mobile-drawer-margin-top);
-
-		@mixin mobile-menu-up {
-			display: none !important;
-		}
-	}
-}
-
-/* Rewards */
-.c-site-header__rewards {
-	display: none;
-	align-items: center;
-	align-self: flex-start;
-	gap: spacing(6);
-	margin-right: calc(var(--account-spacing, 0) / 2);
-	border-radius: spacing(3);
-	background-color: color(base--teal--100);
-	padding: spacing(4) spacing(8);
-	color: color(brand--raspberry);
-	font-weight: font-weight(bold);
-	font-size: rem(11px);
-	line-height: 1;
-	letter-spacing: 0;
-
-	&:not(.hidden) {
-		display: flex;
-	}
-
-	&:hover,
-	&:focus-visible {
-		color: color(brand--raspberry);
-		text-decoration: none;
 	}
 }
 

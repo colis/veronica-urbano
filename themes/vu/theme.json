@@ -82,6 +82,40 @@
 					"strong": "var:custom|colors|brand|aubergine",
 					"subtle": "var:custom|colors|brand|grey-3"
 				},
+				"button": {
+					"primary": {
+						"background": {
+							"disabled": "var:custom|colors|brand|grey-3"
+						}
+					},
+					"secondary": {
+						"background": {
+							"rest": "var:custom|colors|brand|aubergine",
+							"disabled": "var:custom|colors|brand|grey-3"
+						},
+						"border": {
+							"default": "var:custom|colors|brand|aubergine",
+							"active": "var:custom|colors|brand|aubergine",
+							"hover": "var:custom|colors|brand|aubergine",
+							"focus": "var:custom|colors|brand|aubergine",
+							"disabled": "var:custom|colors|brand|grey-3"
+						},
+						"foreground": {
+							"rest": "var:custom|colors|brand|aubergine",
+							"hover": "var:custom|colors|white",
+							"disabled": "var:custom|colors|white"
+						}
+					},
+					"text-only": {
+						"foreground": {
+							"rest": "var:custom|colors|brand|aubergine",
+							"hover": "var:custom|colors|brand|raspberry",
+							"focus": "var:custom|colors|brand|raspberry",
+							"active": "var:custom|colors|brand|raspberry",
+							"disabled": "var:custom|colors|white"
+						}
+					}
+				},
 				"text": {
 					"primary": "var:custom|colors|brand|aubergine",
 					"secondary": "var:custom|colors|brand|grey-1",
@@ -96,7 +130,7 @@
 					"hard": "#E63359"
 				},
 				"focus": {
-					"ring": "var:custom|colors|brand|orange"
+					"ring": "var:custom|colors|brand|aubergine"
 				},
 				"black": "#000000",
 				"white": "#FFFFFF"
@@ -185,13 +219,6 @@
 					"fontStyle": "normal",
 					"lineHeight": "var:custom|typography|body-lg|line-height",
 					"letterSpacing": "var:custom|typography|body-lg|letter-spacing"
-				},
-				"label": {
-					"fontFamily": "var:preset|font-family|jetbrains-mono",
-					"fontSize": "0.75rem",
-					"fontWeight": "var:custom|typography|font-weight|regular",
-					"lineHeight": "1.4",
-					"letterSpacing": "0.12em"
 				},
 				"heading-1": {
 					"fontFamily": "var:preset|font-family|archivo",
@@ -312,22 +339,8 @@
 					"fontSize": "0.75rem",
 					"fontWeight": "var:custom|typography|font-weight|regular",
 					"lineHeight": "1.4",
-					"letterSpacing": "0.12em"
-				},
-				"eyebrow-caps": {
-					"fontFamily": "var:preset|font-family|jetbrains-mono",
-					"fontSize": "0.75rem",
-					"fontWeight": "var:custom|typography|font-weight|regular",
-					"lineHeight": "1.4",
 					"letterSpacing": "0.12em",
 					"textTransform": "uppercase"
-				},
-				"tag": {
-					"fontFamily": "var:preset|font-family|jetbrains-mono",
-					"fontSize": "0.75rem",
-					"fontWeight": "var:custom|typography|font-weight|medium",
-					"lineHeight": "1.2",
-					"letterSpacing": "0.08em"
 				}
 			}
 		},
@@ -823,6 +836,9 @@
 							"name": "White"
 						}
 					]
+				},
+				"spacing": {
+					"margin": true
 				},
 				"typography": {
 					"fontFamilies": [

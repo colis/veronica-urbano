@@ -36,8 +36,7 @@ PARAGRAPHS
 			}
 		}
 
-		&.is-style-eyebrow,
-		&.is-style-eyebrow-caps {
+		&.is-style-eyebrow {
 			&.has-icon {
 				@mixin inline-icon flex;
 

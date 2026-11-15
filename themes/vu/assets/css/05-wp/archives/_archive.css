@@ -21,32 +21,3 @@ body.search {
 	margin-top: spacing(16);
 	margin-bottom: 0;
 }
-
-/*
-FAQ Category
-Legal Category
-*/
-body.tax-faq_category,
-body.tax-legal_category {
-	.grid-posts__1 {
-		gap: 0;
-	}
-
-	.c-pagination {
-		display: none;
-		visibility: hidden;
-	}
-}
-
-/* FAQ Category */
-body.tax-faq_category {
-	&:has(.c-faq-cta) {
-		.c-site-content {
-			margin-bottom: 0;
-		}
-	}
-
-	.c-faq-cta {
-		margin-top: var(--margin-bottom);
-	}
-}

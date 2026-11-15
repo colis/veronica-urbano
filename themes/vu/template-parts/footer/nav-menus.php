@@ -12,7 +12,6 @@ $menus_markup = '';
 $footer_menus = [
 	Nav::FOOTER_1_NAV,
 	Nav::FOOTER_2_NAV,
-	Nav::FOOTER_3_NAV,
 ];
 
 foreach ( $footer_menus as $location ) {
@@ -44,7 +43,6 @@ foreach ( $footer_menus as $location ) {
 	);
 
 	$menus_markup .= '<nav class="c-site-footer__nav" role="navigation" aria-label="' . esc_attr( $menu_label ) . '">';
-	$menus_markup .= '<h2 class="c-site-footer__nav-title">' . esc_html( $menu_name ) . '</h2>';
 	$menus_markup .= $footer_menu;
 	$menus_markup .= '</nav>';
 }
@@ -56,5 +54,6 @@ if ( empty( $menus_markup ) ) {
 ?>
 
 <div class="c-site-footer__navs">
+	<?php get_template_part( 'template-parts/footer/branding' ); ?>
 	<?php echo wp_kses_post( $menus_markup ); ?>
 </div>
