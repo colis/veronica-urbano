@@ -22,7 +22,7 @@ COLOR UTILITY CLASSES
 	color: color(brand--aubergine);
 }
 
-.has-brand-raspberry-color {
+.has-raspberry-color {
 	color: color(brand--raspberry);
 }
 
@@ -45,13 +45,13 @@ COLOR UTILITY CLASSES
 	padding: spacing(32);
 }
 
-.has-brand-aubergine-background-color {
+.has-aubergine-background-color {
 	background-color: color(brand--aubergine);
 	input:focus-visible {
 		outline-color: color(white);
 	}
 }
 
-.has-brand-raspberry-background-color {
+.has-raspberry-background-color {
 	background-color: color(brand--raspberry);
 }

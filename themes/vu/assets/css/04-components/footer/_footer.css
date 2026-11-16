@@ -8,6 +8,7 @@ FOOTER
 	);
 	z-index: 4;
 	margin: auto 0 0 0;
+	border-top: solid spacing(1) color(brand--ink-2);
 	color: color(white);
 
 	@media (--lg-up) {

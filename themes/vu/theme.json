@@ -670,7 +670,19 @@
 				"color": {
 					"background": true,
 					"custom": true,
-					"text": true
+					"text": true,
+					"palette": [
+						{
+							"slug": "aubergine",
+							"color": "var:custom|colors|brand|aubergine",
+							"name": "Aubergine"
+						},
+						{
+							"slug": "white",
+							"color": "var:custom|colors|white",
+							"name": "White"
+						}
+					]
 				},
 				"dimensions": {
 					"minHeight": false
@@ -694,6 +706,11 @@
 							"slug": "aubergine",
 							"color": "var:custom|colors|brand|aubergine",
 							"name": "Aubergine"
+						},
+						{
+							"slug": "gold",
+							"color": "var:custom|colors|brand|gold",
+							"name": "Gold"
 						},
 						{
 							"slug": "raspberry",

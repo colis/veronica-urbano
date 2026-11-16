@@ -119,9 +119,18 @@ BUTTONS BLOCK
 }
 
 /* Dark Background Colors */
-.has-brand-aubergine-background-color {
+.has-aubergine-background-color {
 	&:not(:has(.has-white-background-color)) {
 		.wp-block-button .wp-block-button__link {
+			--bg-color: color(brand--raspberry);
+			--text-color: color(white);
+
+			&:hover,
+			&:active {
+				--bg-color: transparent;
+				--border-color: color(brand--raspberry);
+			}
+
 			&:hover,
 			&:focus-visible {
 				outline-color: color(white);

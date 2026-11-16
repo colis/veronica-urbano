@@ -41,11 +41,11 @@ SEPARATOR BLOCK
 		}
 
 		&,
-		&.has-brand-raspberry-background-color::before {
+		&.has-raspberry-background-color::before {
 			color: color(brand--raspberry);
 		}
 
-		&.has-brand-aubergine-background-color::before {
+		&.has-aubergine-background-color::before {
 			color: color(brand--aubergine);
 		}
 
