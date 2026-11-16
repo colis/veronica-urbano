@@ -50,8 +50,8 @@ BUTTONS BLOCK
 				&::before,
 				&::after {
 					@mixin inline-icon-pseudo;
-					background-color: var(--text-color);
 					display: none;
+					background-color: var(--text-color);
 				}
 			}
 

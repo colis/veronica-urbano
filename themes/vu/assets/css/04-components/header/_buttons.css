@@ -11,10 +11,14 @@ HEADER BUTTONS
 .c-site-header__button {
 	--bg-color: color(brand--raspberry);
 	--height: rem(33px);
+	--icon-gap: spacing(4);
+	--icon-size: rem(18px);
 	width: rem(138px);
+	font-size: font-size(12);
 
 	@mixin mobile-menu-down {
 		all: unset;
+		@mixin inline-icon;
 		cursor: pointer;
 		color: color(foreground--link);
 		font-weight: typography(button--font-weight);

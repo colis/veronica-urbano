@@ -20,6 +20,11 @@ Small button
 <a href="#" class="vu-button button-small">Button Text</a>
 <a href="#" class="vu-button button-outline button-small">Button Text</a>
 
+Icon button (set --icon-url, --icon-size, and --icon-gap inline)
+----------------------------
+<a href="#" class="vu-button has-icon has-icon-leading">Button Text</a>
+<a href="#" class="vu-button has-icon has-icon-trailing">Button Text</a>
+
 ========================================================================== */
 
 /*------------------------------------
@@ -28,6 +33,11 @@ Primary (Fill)
 
 .vu-button {
 	@mixin button;
+
+	&.has-icon-leading::before,
+	&.has-icon-trailing::after {
+		@mixin inline-icon-pseudo;
+	}
 }
 
 /*------------------------------------
