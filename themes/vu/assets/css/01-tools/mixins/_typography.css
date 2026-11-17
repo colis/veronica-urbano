@@ -48,8 +48,8 @@ Example usage:
 	color: color(brand--aubergine);
 	font-weight: typography(eyebrow--font-weight);
 	font-size: typography(eyebrow--font-size);
-	font-family: typography(eyebrow--font-family);
 	line-height: typography(eyebrow--line-height);
+	font-family: typography(eyebrow--font-family);
 	letter-spacing: typography(eyebrow--letter-spacing);
 	text-transform: typography(eyebrow--text-transform);
 }
@@ -103,10 +103,9 @@ Example usage:
 
 /* Heading */
 @define-mixin heading $level: 1 {
-	font-family: typography(heading-1--font-family);
 	font-weight: heading($level, font-weight);
 	font-size: heading($level, font-size);
 	line-height: heading($level, line-height);
+	font-family: typography(heading-1--font-family);
 	letter-spacing: heading($level, letter-spacing);
-	text-transform: uppercase;
 }

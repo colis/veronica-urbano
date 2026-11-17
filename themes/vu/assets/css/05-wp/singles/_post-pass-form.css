@@ -3,7 +3,6 @@ POST PASSWORD FORM
 ========================================================================== */
 
 .post-password-form {
-	@mixin rounded-corners;
 	margin: spacing-step(80) 0;
 	background-color: color(brand--paper);
 	padding: spacing-step(75);

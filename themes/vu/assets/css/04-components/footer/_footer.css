@@ -11,10 +11,6 @@ FOOTER
 	border-top: solid spacing(1) color(brand--ink-2);
 	color: color(white);
 
-	@media (--lg-up) {
-		--wp--custom--grid--gutter: spacing(24);
-	}
-
 	a,
 	button {
 		&:focus-visible {

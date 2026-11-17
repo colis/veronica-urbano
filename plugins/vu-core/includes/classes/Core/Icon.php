@@ -52,6 +52,10 @@ class Icon extends BaseAbstract {
 			'svg'      => '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.86612 4.74112C8.37796 5.22927 8.37796 6.02073 8.86612 6.50888L14.355 11.9978L8.86612 17.4867C8.37796 17.9749 8.37796 18.7663 8.86612 19.2545C9.35427 19.7426 10.1457 19.7426 10.6339 19.2545L17.0067 12.8817C17.4948 12.3935 17.4948 11.6021 17.0067 11.1139L10.6339 4.74112C10.1457 4.25296 9.35427 4.25296 8.86612 4.74112Z" fill="currentColor"/></svg>',
 			'category' => 'Glyphs',
 		],
+		'heavy-asterisk'  => [
+			'svg'      => '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 2H14V8.536L19.66 5.268L21.66 8.732L16 12L21.66 15.268L19.66 18.732L14 15.464V22H10V15.464L4.34 18.732L2.34 15.268L8 12L2.34 8.732L4.34 5.268L10 8.536V2Z" fill="currentColor"/></svg>',
+			'category' => 'Glyphs',
+		],
 	];
 
 	/**

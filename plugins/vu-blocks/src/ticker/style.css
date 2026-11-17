@@ -1,0 +1,93 @@
+/**
+ * Ticker Styles
+ */
+
+.wp-block-vu-ticker {
+	display: flex;
+	padding: spacing(4) !important;
+	overflow: hidden;
+	font-weight: font-weight(extrabold);
+
+	&.has-separator {
+		.wp-block-vu-ticker__group {
+			> ul {
+				> li {
+					&::after {
+						flex: 0 0 var(--vu-ticker-separator-size, 24px);
+						mask: var(--vu-ticker-separator-icon) center / contain
+							no-repeat;
+						background-color: color(brand--gold);
+						width: var(--vu-ticker-separator-size, 24px);
+						height: var(--vu-ticker-separator-size, 24px);
+						content: "";
+					}
+				}
+			}
+		}
+	}
+
+	ul {
+		@mixin reset-list-style;
+		display: flex;
+		flex-shrink: 0;
+		gap: spacing(28);
+		padding-inline-end: spacing(28);
+		letter-spacing: -0.02em;
+		white-space: nowrap;
+
+		li,
+		li + li {
+			@mixin reset-list-item;
+			flex-shrink: 0;
+		}
+	}
+
+	.wp-block-vu-ticker__group {
+		display: flex;
+		flex: 0 0 auto;
+		animation: vu-ticker 30s linear infinite;
+
+		> ul {
+			flex: 1 0 auto;
+
+			> li {
+				display: flex;
+				align-items: center;
+				gap: spacing(28);
+			}
+		}
+	}
+
+	p {
+		display: flex;
+		align-items: center;
+		gap: spacing(28);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.wp-block-vu-ticker__group {
+			display: block;
+			animation: none;
+			width: auto;
+		}
+
+		ul {
+			flex-wrap: wrap;
+			width: auto;
+			white-space: normal;
+		}
+
+		[aria-hidden="true"] {
+			display: none;
+		}
+	}
+
+	@keyframes vu-ticker {
+		from {
+			transform: translateX(0);
+		}
+		to {
+			transform: translateX(-100%);
+		}
+	}
+}

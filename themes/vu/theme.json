@@ -500,6 +500,11 @@
 					"name": "Archivo"
 				},
 				{
+					"fontFamily": "Archivo SemiExpanded, ui-sans-serif, system-ui, sans-serif",
+					"slug": "archivo-semiexpanded",
+					"name": "Archivo SemiExpanded"
+				},
+				{
 					"fontFamily": "\"Instrument Sans\", ui-sans-serif, system-ui, sans-serif",
 					"slug": "instrument-sans",
 					"name": "Instrument Sans"
@@ -543,14 +548,29 @@
 					"name": "20px"
 				},
 				{
+					"slug": "24-20",
+					"size": "var:custom|typography|heading-xs|font-size",
+					"name": "20px (18px)"
+				},
+				{
 					"slug": "24",
 					"size": "1.5rem",
 					"name": "24px"
 				},
 				{
-					"slug": "24-20",
-					"size": "var:custom|typography|heading-xs|font-size",
-					"name": "20px (18px)"
+					"slug": "28-20",
+					"size": "clamp(1.25rem, 0.833vw + 1rem, 1.75rem)",
+					"name": "28px (20px)"
+				},
+				{
+					"slug": "28",
+					"size": "1.75rem",
+					"name": "28px"
+				},
+				{
+					"slug": "40-24",
+					"size": "clamp(1.5rem, 1.667vw + 1rem, 2.5rem)",
+					"name": "40px (24px)"
 				},
 				{
 					"slug": "80",
@@ -642,7 +662,8 @@
 				},
 				"spacing": {
 					"blockGap": true,
-					"margin": true
+					"margin": true,
+					"padding": true
 				},
 				"typography": {
 					"fontFamilies": [],
@@ -676,6 +697,11 @@
 							"slug": "aubergine",
 							"color": "var:custom|colors|brand|aubergine",
 							"name": "Aubergine"
+						},
+						{
+							"slug": "gold",
+							"color": "var:custom|colors|brand|gold",
+							"name": "Gold"
 						},
 						{
 							"slug": "white",
@@ -801,10 +827,57 @@
 					]
 				},
 				"typography": {
-					"fontFamilies": []
+					"fontFamilies": [
+						{
+							"fontFamily": "Archivo, ui-sans-serif, system-ui, sans-serif",
+							"slug": "archivo",
+							"name": "Archivo"
+						},
+						{
+							"fontFamily": "Archivo SemiExpanded, ui-sans-serif, system-ui, sans-serif",
+							"slug": "archivo-semiexpanded",
+							"name": "Archivo SemiExpanded"
+						},
+						{
+							"fontFamily": "\"Instrument Sans\", ui-sans-serif, system-ui, sans-serif",
+							"slug": "instrument-sans",
+							"name": "Instrument Sans"
+						},
+						{
+							"fontFamily": "\"JetBrains Mono\", ui-monospace, monospace",
+							"slug": "jetbrains-mono",
+							"name": "JetBrains Mono"
+						}
+					]
 				}
 			},
 			"core/list-item": {
+				"color": {
+					"text": true,
+					"custom": true,
+					"palette": [
+						{
+							"slug": "aubergine",
+							"color": "var:custom|colors|brand|aubergine",
+							"name": "Aubergine"
+						},
+						{
+							"slug": "gold",
+							"color": "var:custom|colors|brand|gold",
+							"name": "Gold"
+						},
+						{
+							"slug": "raspberry",
+							"color": "var:custom|colors|brand|raspberry",
+							"name": "Raspberry"
+						},
+						{
+							"slug": "white",
+							"color": "var:custom|colors|white",
+							"name": "White"
+						}
+					]
+				},
 				"typography": {
 					"fontFamilies": [],
 					"fontSizes": []
@@ -846,6 +919,16 @@
 							"slug": "aubergine",
 							"color": "var:custom|colors|brand|aubergine",
 							"name": "Aubergine"
+						},
+						{
+							"slug": "gold",
+							"color": "var:custom|colors|brand|gold",
+							"name": "Gold"
+						},
+						{
+							"slug": "raspberry",
+							"color": "var:custom|colors|brand|raspberry",
+							"name": "Raspberry"
 						},
 						{
 							"slug": "white",
@@ -985,6 +1068,54 @@
 			"core/table": {
 				"typography": {
 					"fontFamilies": []
+				}
+			},
+			"vu/grid": {
+				"spacing": {
+					"blockGap": true,
+					"margin": true
+				}
+			},
+			"vu/ticker": {
+				"color": {
+					"background": true,
+					"text": true,
+					"palette": [
+						{
+							"slug": "aubergine",
+							"color": "var:custom|colors|brand|aubergine",
+							"name": "Aubergine"
+						},
+						{
+							"slug": "gold",
+							"color": "var:custom|colors|brand|gold",
+							"name": "Gold"
+						},
+						{
+							"slug": "raspberry",
+							"color": "var:custom|colors|brand|raspberry",
+							"name": "Raspberry"
+						},
+						{
+							"slug": "white",
+							"color": "var:custom|colors|white",
+							"name": "White"
+						}
+					]
+				},
+				"typography": {
+					"fontFamilies": [
+						{
+							"fontFamily": "Archivo, ui-sans-serif, system-ui, sans-serif",
+							"slug": "archivo",
+							"name": "Archivo"
+						},
+						{
+							"fontFamily": "Archivo SemiExpanded, ui-sans-serif, system-ui, sans-serif",
+							"slug": "archivo-semiexpanded",
+							"name": "Archivo SemiExpanded"
+						}
+					]
 				}
 			}
 		}

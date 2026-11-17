@@ -40,10 +40,10 @@ domReady(() => {
 		label: 'Text',
 	});
 
-	/* Rounded Corners */
-	registerBlockStyle(['core/cover', 'core/group'], {
-		name: 'rounded-corners',
-		label: 'Rounded Corners',
+	/* Box Shadow */
+	registerBlockStyle('core/group', {
+		name: 'box-shadow',
+		label: 'Box Shadow',
 	});
 
 	/* List */

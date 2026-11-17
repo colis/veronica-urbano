@@ -1,0 +1,27 @@
+/**
+ * Grid Styles
+ */
+
+.wp-block-vu-grid {
+	&.is-layout-grid {
+		display: grid;
+		grid-template-columns: repeat(
+			var(--grid-columns-mobile),
+			minmax(0, 1fr)
+		);
+
+		@media (--md-up) {
+			grid-template-columns: repeat(
+				var(--grid-columns-tablet),
+				minmax(0, 1fr)
+			);
+		}
+
+		@media (--lg-up) {
+			grid-template-columns: repeat(
+				var(--grid-columns-desktop),
+				minmax(0, 1fr)
+			);
+		}
+	}
+}

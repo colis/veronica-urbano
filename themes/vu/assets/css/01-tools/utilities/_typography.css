@@ -40,6 +40,12 @@ Example usage:
 		@mixin body-lg;
 	}
 
+	.has-28-font-size,
+	.has-28-20-font-size {
+		@mixin body-lg;
+		line-height: 1.35;
+	}
+
 	.has-48-font-size,
 	.has-heading-48-font-size {
 		@mixin heading md;

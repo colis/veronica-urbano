@@ -1,7 +1,13 @@
 /* ==========================================================================
-ROUNDED UTILITY CLASSES
+BOX SHADOW
+
+Example usage:
+
+.wp-block-column {
+	@mixin box-shadow;
+}
 ========================================================================== */
 
-.is-style-rounded-corners {
-	@mixin rounded-corners;
+@define-mixin box-shadow {
+	box-shadow: custom(misc--box-shadow--hard);
 }

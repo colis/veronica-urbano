@@ -1,0 +1,34 @@
+/**
+ * Ticker Editor Styles
+ */
+
+.block-editor-block-list__block.wp-block.wp-block-vu-ticker {
+	.wp-block-vu-ticker__group {
+		&[aria-hidden="true"] {
+			display: none;
+		}
+	}
+
+	&.is-editing {
+		overflow: visible;
+
+		ul {
+			display: block;
+			animation: none;
+			margin-block: spacing(16);
+			padding-inline-start: spacing(24);
+			width: auto;
+			letter-spacing: normal;
+			list-style: disc outside;
+			white-space: normal;
+
+			li {
+				display: list-item;
+
+				+ li {
+					margin-top: spacing(12);
+				}
+			}
+		}
+	}
+}

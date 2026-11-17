@@ -11,8 +11,8 @@
 	"license": "MIT",
 	"scripts": {
 		"start": "composer install --ignore-platform-reqs && npm install && npm run build",
-		"build": "wp-scripts build",
-		"watch": "wp-scripts start",
+		"build": "wp-scripts build --blocks-manifest",
+		"watch": "wp-scripts start --blocks-manifest",
 		"build-release": "npm install && composer install --no-dev -o && npm run build",
 		"lint:js": "wp-scripts lint-js",
 		"lint:css": "wp-scripts lint-style",

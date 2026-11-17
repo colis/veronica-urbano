@@ -3,7 +3,6 @@ BLOCKS
 ========================================================================== */
 
 @import "blocks/core/_buttons.css";
-@import "blocks/core/_columns.css";
 @import "blocks/core/_cover.css";
 @import "blocks/core/_group.css";
 @import "blocks/core/_image.css";

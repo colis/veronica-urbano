@@ -8,6 +8,7 @@
 namespace VUBlocks;
 
 use VUBlocks\Admin\IconPreview;
+use VUBlocks\Blocks\Blocks;
 use VUBlocks\Blocks\Extensions\{
 	Button,
 	Cover,
@@ -63,6 +64,10 @@ class Plugin extends BaseAbstract {
 
 		// Load text domain.
 		add_action( 'init', [ $this->app->get( Core::class ), 'i18n' ] );
+
+		// Blocks.
+		add_action( 'init', [ $this->app->get( Blocks::class ), 'register_blocks' ] );
+		add_action( 'block_categories_all', [ $this->app->get( Blocks::class ), 'register_block_category' ] );
 
 		// Block Editor.
 		// Gutenberg Theme support.

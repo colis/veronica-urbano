@@ -1,11 +1,7 @@
 /* ==========================================================================
-COLUMNS BLOCK
+BOX SHADOW UTILITY CLASSES
 ========================================================================== */
 
-.wp-block-columns {
-	.wp-block-column {
-		&.has-background {
-			@mixin rounded-corners;
-		}
-	}
+.is-style-box-shadow {
+	@mixin box-shadow;
 }

@@ -1,0 +1,47 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "vu/grid",
+	"title": "Grid",
+	"category": "vu-blocks",
+	"icon": "grid-view",
+	"description": "Arrange content in a grid layout across desktop, tablet and mobile devices.",
+	"keywords": ["grid"],
+	"textdomain": "vu-blocks",
+	"attributes": {
+		"columnsMobile": {
+			"type": "integer",
+			"default": 1
+		},
+		"columnsTablet": {
+			"type": "integer",
+			"default": 2
+		},
+		"columnsDesktop": {
+			"type": "integer",
+			"default": 3
+		}
+	},
+	"supports": {
+		"anchor": false,
+		"align": false,
+		"html": false,
+		"layout": {
+			"allowSwitching": false,
+			"allowInheriting": false,
+			"allowEditing": false,
+			"default": {
+				"type": "grid"
+			}
+		},
+		"spacing": {
+			"blockGap": {
+				"sides": ["horizontal", "vertical"]
+			},
+			"margin": ["top", "bottom"]
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

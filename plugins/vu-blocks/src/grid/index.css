@@ -1,0 +1,36 @@
+/**
+ * Grid Editor Styles
+ */
+
+.block-editor-block-list__block.wp-block.wp-block-vu-grid {
+	display: block;
+
+	> .block-editor-inner-blocks {
+		> .block-editor-block-list__layout {
+			display: grid;
+			grid-template-columns: repeat(
+				var(--grid-columns-mobile),
+				minmax(0, 1fr)
+			);
+
+			@media (--md-up) {
+				grid-template-columns: repeat(
+					var(--grid-columns-tablet),
+					minmax(0, 1fr)
+				);
+			}
+
+			@media (--xl-up) {
+				grid-template-columns: repeat(
+					var(--grid-columns-desktop),
+					minmax(0, 1fr)
+				);
+			}
+
+			/* Nested Synced Pattern height fix */
+			.is-reusable > .is-editing-disabled {
+				height: 100%;
+			}
+		}
+	}
+}

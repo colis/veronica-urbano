@@ -43,6 +43,20 @@ FONT FAMILIES
 	font-display: swap;
 }
 
+@font-face {
+	font-style: normal;
+	font-weight: 900;
+	src: resolve("archivo-semiexpanded-extrabold.eot");
+	src:
+		resolve("archivo-semiexpanded-extrabold.woff2") format("woff2"),
+		resolve("archivo-semiexpanded-extrabold.woff") format("woff"),
+		resolve("archivo-semiexpanded-extrabold.ttf") format("truetype"),
+		resolve("archivo-semiexpanded-extrabold.eot?#iefix")
+			format("embedded-opentype");
+	font-family: "Archivo SemiExpanded";
+	font-display: swap;
+}
+
 /* Instrument Sans */
 
 @font-face {

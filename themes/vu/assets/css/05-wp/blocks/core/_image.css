@@ -14,10 +14,6 @@ IMAGE BLOCK
 		}
 	}
 
-	&.is-style-rounded img {
-		@mixin rounded-corners;
-	}
-
 	& > a {
 		display: block;
 	}

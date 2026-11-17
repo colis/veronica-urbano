@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "vu/ticker",
+	"title": "Ticker",
+	"category": "vu-blocks",
+	"icon": "controls-repeat",
+	"description": "Arrange content in a horizontal ticker.",
+	"keywords": ["ticker"],
+	"textdomain": "vu-blocks",
+	"attributes": {
+		"separatorIcon": {
+			"type": "string",
+			"default": ""
+		},
+		"separatorIconSize": {
+			"type": "string",
+			"default": "24"
+		}
+	},
+	"supports": {
+		"anchor": false,
+		"align": true,
+		"color": {
+			"background": true
+		},
+		"html": false
+	},
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

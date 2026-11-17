@@ -3,7 +3,7 @@ SEPARATOR BLOCK
 ========================================================================== */
 
 .wp-block-separator.wp-block-separator {
-	--height: spacing(1);
+	--height: spacing(2);
 	margin: spacing-step(30) 0;
 	border: none;
 	width: 100% !important;
