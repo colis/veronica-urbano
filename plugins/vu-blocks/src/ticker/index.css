@@ -3,10 +3,8 @@
  */
 
 .block-editor-block-list__block.wp-block.wp-block-vu-ticker {
-	.wp-block-vu-ticker__group {
-		&[aria-hidden="true"] {
-			display: none;
-		}
+	> div {
+		display: flex;
 	}
 
 	&.is-editing {
