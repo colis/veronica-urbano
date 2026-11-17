@@ -147,6 +147,19 @@ Secondary (Outline)
 }
 
 /*------------------------------------
+Tertiary
+------------------------------------*/
+@define-mixin button-tertiary {
+	--bg-color: color(accent--hover);
+
+	&:hover,
+	&:active {
+		@mixin button-hover;
+		--bg-color: color(background--inverse);
+	}
+}
+
+/*------------------------------------
 Text Only
 ------------------------------------*/
 

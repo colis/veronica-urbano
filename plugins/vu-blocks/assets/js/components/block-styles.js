@@ -36,6 +36,10 @@ domReady(() => {
 		label: 'Secondary',
 	});
 	registerBlockStyle('core/button', {
+		name: 'tertiary',
+		label: 'Tertiary',
+	});
+	registerBlockStyle('core/button', {
 		name: 'text',
 		label: 'Text',
 	});
@@ -50,6 +54,10 @@ domReady(() => {
 	registerBlockStyle('core/list', {
 		name: 'featured',
 		label: 'Featured',
+	});
+	registerBlockStyle('core/list', {
+		name: 'featured-years',
+		label: 'Featured Years',
 	});
 
 	/* Media & Text */
@@ -66,6 +74,12 @@ domReady(() => {
 	registerBlockStyle('core/paragraph', {
 		name: 'eyebrow',
 		label: 'Eyebrow',
+	});
+
+	/* Paragraph */
+	registerBlockStyle('core/paragraph', {
+		name: 'pill',
+		label: 'Pill',
 	});
 
 	/* Separator */

@@ -9,7 +9,7 @@ HEADER BUTTONS
 }
 
 .c-site-header__button {
-	--bg-color: color(brand--raspberry);
+	@mixin button-tertiary;
 	--height: rem(33px);
 	--icon-gap: spacing(4);
 	--icon-size: rem(18px);
@@ -26,28 +26,12 @@ HEADER BUTTONS
 		line-height: 1.5;
 	}
 
-	&,
 	&:hover,
 	&:focus-visible,
 	&:active {
-		@mixin mobile-menu-up {
-			color: color(white);
-		}
-	}
-
-	&:hover,
-	&:focus-visible,
-	&:active {
-		--bg-color: color(brand--aubergine);
-
 		@mixin mobile-menu-down {
 			background: transparent;
 			color: color(button--text-only--foreground--hover);
 		}
-	}
-
-	&:focus-visible {
-		@mixin focus-outline;
-		@mixin outline-offset;
 	}
 }

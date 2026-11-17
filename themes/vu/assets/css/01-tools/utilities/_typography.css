@@ -5,6 +5,8 @@ Example usage:
 
 <p class="eyebrow">Eyebrow Text</p>
 
+<p class="pill">Pill Text</p>
+
 <p class="has-11-font-size">11px Text</p>
 
 <p><span class="no-wrap">No Wrap</span> Text</p>
@@ -19,6 +21,16 @@ Example usage:
 
 		&.has-white-color {
 			@mixin eyebrow-light;
+		}
+	}
+
+	.pill,
+	.is-style-pill,
+	p.is-style-pill {
+		@mixin pill;
+
+		&.has-white-color {
+			@mixin pill-light;
 		}
 	}
 

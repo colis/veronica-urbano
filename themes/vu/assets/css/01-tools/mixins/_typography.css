@@ -17,6 +17,11 @@ Example usage:
 }
 
 .my-class {
+	@mixin pill;
+	@mixin pill-light;
+}
+
+.my-class {
 	@mixin body;
 }
 
@@ -55,6 +60,26 @@ Example usage:
 }
 
 @define-mixin eyebrow-light {
+	color: color(white);
+}
+
+/* Pill */
+@define-mixin pill {
+	border: rem(1.5px) solid color(brand--aubergine);
+	border-radius: radius(full);
+	background-color: transparent;
+	padding: spacing(6) spacing(12);
+	color: color(brand--aubergine);
+	font-weight: typography(eyebrow--font-weight);
+	font-size: typography(eyebrow--font-size);
+	line-height: typography(eyebrow--line-height);
+	font-family: typography(eyebrow--font-family);
+	letter-spacing: typography(eyebrow--letter-spacing);
+	text-transform: typography(eyebrow--text-transform);
+}
+
+@define-mixin pill-light {
+	background-color: color(brand--aubergine);
 	color: color(white);
 }
 

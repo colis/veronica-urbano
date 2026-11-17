@@ -81,9 +81,6 @@ class Performance extends BaseAbstract {
 		}
 
 		$styles_to_dequeue  = [
-			// Dequeue block library common styles.
-			// `/wp-includes/css/dist/block-library/common.min.css` stylesheet.
-			'wp-block-library',
 			// Dequeue default block "theme" styles.
 			// These are not core block styles, but opinionated theme styles.
 			'wp-block-gallery-theme',

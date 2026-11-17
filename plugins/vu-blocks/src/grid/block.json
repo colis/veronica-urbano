@@ -23,8 +23,8 @@
 		}
 	},
 	"supports": {
-		"anchor": false,
 		"align": false,
+		"anchor": false,
 		"html": false,
 		"layout": {
 			"allowSwitching": false,

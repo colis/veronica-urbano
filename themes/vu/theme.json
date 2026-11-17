@@ -238,7 +238,7 @@
 					"fontFamily": "var:preset|font-family|archivo",
 					"fontSize": "var:custom|typography|heading-sm|font-size",
 					"fontWeight": "var:custom|typography|heading-sm|font-weight",
-					"lineHeight": "var:custom|typography|heading-sm|line-height",
+					"lineHeight": "var:custom|typography|heading-sm-md|line-height",
 					"letterSpacing": "var:custom|typography|heading-sm|letter-spacing"
 				},
 				"heading-4": {
@@ -289,6 +289,13 @@
 					"fontWeight": "var:custom|typography|font-weight|extrabold",
 					"lineHeight": "clamp(1.84rem, 3.68vw, 3.22rem)",
 					"letterSpacing": "clamp(-0.1225rem, -0.14vw, -0.07rem)"
+				},
+				"heading-sm-md": {
+					"fontFamily": "var:preset|font-family|archivo",
+					"fontSize": "clamp(1.75rem, 0.833vw + 1.5rem, 2.25rem)",
+					"fontWeight": "var:custom|typography|font-weight|extrabold",
+					"lineHeight": "clamp(1.75rem, 0.833vw + 1.5rem, 2.25rem)",
+					"letterSpacing": "clamp(-0.06125rem, -0.01458335vw + -0.048125rem, -0.0525rem)"
 				},
 				"heading-sm": {
 					"fontFamily": "var:preset|font-family|archivo",
@@ -353,7 +360,7 @@
 			"blockGap": false,
 			"margin": false,
 			"padding": false,
-			"units": ["px", "%", "vh", "vw"],
+			"units": ["px", "%", "ch", "vh", "vw"],
 			"defaultSpacingSizes": false,
 			"spacingScale": {},
 			"spacingSizes": [
@@ -568,6 +575,11 @@
 					"name": "28px"
 				},
 				{
+					"slug": "36",
+					"size": "2.25rem",
+					"name": "36px"
+				},
+				{
 					"slug": "40-24",
 					"size": "clamp(1.5rem, 1.667vw + 1rem, 2.5rem)",
 					"name": "40px (24px)"
@@ -639,13 +651,23 @@
 				}
 			},
 			"core/column": {
+				"appearanceTools": true,
 				"border": {
-					"radius": true
+					"color": true,
+					"radius": false,
+					"width": true
 				},
 				"color": {
 					"background": true,
 					"custom": true,
-					"text": true
+					"text": true,
+					"palette": [
+						{
+							"slug": "aubergine",
+							"color": "var:custom|colors|brand|aubergine",
+							"name": "Aubergine"
+						}
+					]
 				},
 				"spacing": {
 					"padding": true
@@ -685,8 +707,11 @@
 				}
 			},
 			"core/group": {
+				"appearanceTools": true,
 				"border": {
-					"radius": true
+					"color": true,
+					"radius": false,
+					"width": true
 				},
 				"color": {
 					"background": true,
@@ -702,6 +727,11 @@
 							"slug": "gold",
 							"color": "var:custom|colors|brand|gold",
 							"name": "Gold"
+						},
+						{
+							"slug": "grey-4",
+							"color": "var:custom|colors|brand|grey-4",
+							"name": "Grey 4"
 						},
 						{
 							"slug": "white",
@@ -759,6 +789,11 @@
 							"fontFamily": "Archivo",
 							"slug": "archivo",
 							"name": "Archivo"
+						},
+						{
+							"fontFamily": "\"JetBrains Mono\", ui-monospace, monospace",
+							"slug": "jetbrains-mono",
+							"name": "JetBrains Mono"
 						}
 					],
 					"fontSizes": [
@@ -773,14 +808,14 @@
 							"name": "88px (44px) - Heading Level 1"
 						},
 						{
-							"slug": "heading-48",
-							"size": "var:preset|font-size|48",
-							"name": "56px (32px) - Heading MD"
-						},
-						{
 							"slug": "heading-2",
 							"size": "var:custom|typography|heading-2|font-size",
 							"name": "56px (32px) - Heading Level 2"
+						},
+						{
+							"slug": "heading-sm-md",
+							"size": "var:custom|typography|heading-sm-md|font-size",
+							"name": "36px (28px) - Heading SM/MD"
 						},
 						{
 							"slug": "heading-3",
@@ -946,6 +981,11 @@
 							"fontFamily": "Instrument Sans",
 							"slug": "instrument-sans",
 							"name": "Instrument Sans"
+						},
+						{
+							"fontFamily": "\"JetBrains Mono\", ui-monospace, monospace",
+							"slug": "jetbrains-mono",
+							"name": "JetBrains Mono"
 						}
 					]
 				}

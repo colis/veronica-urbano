@@ -21,9 +21,10 @@ LIST BLOCK
 	}
 }
 
-/* Style: Featured (numbers only) */
+/* Styles: Featured numbers and editable years */
 ol.wp-block-list {
-	&.is-style-featured {
+	&.is-style-featured,
+	&.is-style-featured-years {
 		counter-reset: custom-counter;
 		padding: 0;
 		font-weight: font-weight(medium);
@@ -34,26 +35,20 @@ ol.wp-block-list {
 			flex-wrap: wrap;
 			gap: spacing(20);
 			counter-increment: custom-counter;
+			border-top: solid spacing(1) color(brand--grey-3);
+			padding: calc(spacing(36) / 2) 0;
+			line-height: 1.5;
 
-			@media (--md-up) {
-				gap: spacing(40);
+			&:last-of-type {
+				border-bottom: solid spacing(1) color(brand--grey-3);
 			}
 
 			&::before {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				border: spacing(2) solid color(brand--aubergine);
-				border-radius: radius(full);
-				padding: spacing(12) spacing(8) spacing(8);
-				width: rem(58px);
-				height: rem(58px);
-				content: counter(custom-counter);
-				color: color(brand--aubergine);
-				font-weight: font-weight(bold);
-				font-size: rem(27.84px);
-				line-height: 1;
-				text-align: center;
+				@mixin eyebrow;
+				content: counter(custom-counter, decimal-leading-zero);
+				color: color(brand--raspberry);
+				font-size: rem(13px);
+				line-height: 1.8;
 			}
 
 			> span,
@@ -62,11 +57,19 @@ ol.wp-block-list {
 			}
 
 			+ li {
-				margin-top: spacing(20);
+				margin-top: 0;
+			}
+		}
+	}
 
-				@media (--md-up) {
-					margin-top: spacing(40);
-				}
+	&.is-style-featured-years {
+		> li {
+			flex-wrap: nowrap;
+
+			&::before {
+				flex-shrink: 0;
+				min-width: 20ch;
+				content: var(--featured-year, "");
 			}
 		}
 	}
@@ -74,7 +77,8 @@ ol.wp-block-list {
 
 /* Color: White - Featured style */
 .has-white-color {
-	&.wp-block-list.is-style-featured {
+	&.wp-block-list.is-style-featured,
+	&.wp-block-list.is-style-featured-years {
 		li::before {
 			border-color: color(white);
 			color: color(white);

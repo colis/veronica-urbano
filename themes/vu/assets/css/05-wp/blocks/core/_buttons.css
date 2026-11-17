@@ -24,6 +24,13 @@ BUTTONS BLOCK
 			}
 		}
 
+		/* Style: Tertiary */
+		&.is-style-tertiary {
+			.wp-block-button__link {
+				@mixin button-tertiary;
+			}
+		}
+
 		/* Style: Text Only */
 		&.is-style-text {
 			.wp-block-button__link {
