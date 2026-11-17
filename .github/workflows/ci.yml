@@ -29,6 +29,7 @@ jobs:
         server-dir: /public_html/wp-content/
         exclude: |
           .*
+          node_modules/**
           composer.json
           composer.lock
           eslint.config.mjs
