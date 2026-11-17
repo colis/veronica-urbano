@@ -82,6 +82,7 @@ PRIMARY NAVIGATION
 				justify-content: space-between;
 				align-items: center;
 				width: 100%;
+				text-transform: uppercase;
 
 				@mixin mobile-menu-up {
 					@mixin heading xs;
