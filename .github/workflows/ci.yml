@@ -44,8 +44,3 @@ jobs:
           themes/vu/assets/**
           plugins/vu-core/assets/**
           plugins/vu-core/composer.json
-          plugins/gravityforms
-          plugins/gravityformsrecaptcha
-          plugins/imagify
-          plugins/wordfence
-          plugins/wordpress-seo

@@ -31,10 +31,7 @@
 		"php": ">=8.4.27",
 		"johnbillion/extended-cpts": "^5.1",
 		"league/container": "^5.0",
-		"wpackagist-plugin/imagify": "^2.0",
-		"wpackagist-plugin/safe-svg": "^2.5",
-		"wpackagist-plugin/wordfence": "^9.0",
-		"wpackagist-plugin/wordpress-seo": "^28.0"
+		"wpackagist-plugin/safe-svg": "^2.5"
 	},
 	"require-dev": {
 		"dealerdirect/phpcodesniffer-composer-installer": "^1.0.0",
