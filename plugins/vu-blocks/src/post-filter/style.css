@@ -1,0 +1,52 @@
+/**
+ * Post Filter Block Styles
+ */
+
+.wp-block-vu-post-filter {
+	@mixin reset-list-style;
+	display: flex;
+	flex-wrap: wrap;
+	gap: spacing(10);
+
+	&.hidden {
+		display: none;
+	}
+
+	li {
+		display: inline-flex;
+	}
+
+	input {
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		margin: 0;
+		border: 0;
+		padding: 0;
+		width: 0;
+		height: 0;
+		pointer-events: none;
+
+		&:focus-visible {
+			& + label {
+				@mixin focus-outline;
+			}
+		}
+
+		&:checked {
+			& + label {
+				background-color: color(brand--aubergine);
+				color: color(white);
+			}
+		}
+	}
+
+	label {
+		@mixin pill;
+		display: flex;
+		align-items: center;
+		font-size: font-size(12);
+		text-align: center;
+	}
+}

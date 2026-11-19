@@ -1,0 +1,64 @@
+/* ==========================================================================
+DOWNLOADABLE ASSET CARD
+========================================================================== */
+
+.c-card.c-card-downloadable-asset {
+	.c-card__link {
+		display: flex;
+		flex-direction: column;
+		gap: spacing(16);
+		width: 100%;
+		overflow: visible;
+		color: color(site-foreground);
+		text-decoration: none;
+
+		&:hover,
+		&:active,
+		&:focus-visible {
+			.c-card-downloadable-asset__filename {
+				text-decoration: underline;
+			}
+
+			.button-download {
+				@mixin button-text-hover;
+			}
+		}
+	}
+
+	.c-card__image {
+		position: relative;
+		margin: 0;
+		box-shadow: 0 spacing(4) spacing(20) 0 color(black-rgba-05);
+		border-radius: radius(2-xl);
+		padding: spacing(40) spacing(16);
+		width: 100%;
+		height: rem(220px);
+		overflow: hidden;
+
+		@media (--md-up) {
+			height: rem(262px);
+		}
+
+		img {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+	}
+
+	.wp-block-buttons {
+		display: flex;
+		justify-content: center;
+		margin-top: 0;
+	}
+}
+
+.c-card-downloadable-asset__filename {
+	@mixin body-md;
+	margin-top: spacing(8);
+	margin-bottom: 0;
+	text-align: center;
+	word-break: break-all;
+}

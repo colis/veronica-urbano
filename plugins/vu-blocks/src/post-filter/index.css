@@ -1,0 +1,15 @@
+/**
+ * Post Filter Block Editor Styles
+ */
+
+.wp-block-vu-post-filter * {
+	pointer-events: none;
+
+	.filter {
+		margin: 0;
+	}
+
+	.c-dialog {
+		display: none;
+	}
+}

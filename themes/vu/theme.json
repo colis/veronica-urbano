@@ -575,6 +575,11 @@
 					"name": "28px"
 				},
 				{
+					"slug": "32-22",
+					"size": "clamp(1.375rem, 1.042vw + 1.063rem, 2rem)",
+					"name": "32px (22px)"
+				},
+				{
 					"slug": "36",
 					"size": "2.25rem",
 					"name": "36px"

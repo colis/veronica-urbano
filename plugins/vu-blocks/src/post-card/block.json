@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "vu/post-card",
+	"title": "Post Card",
+	"category": "vu-blocks",
+	"icon": "index-card",
+	"description": "Block to output a post card.",
+	"keywords": ["post", "card"],
+	"parent": ["core/post-template"],
+	"textdomain": "vu-blocks",
+	"attributes": {
+		"postId": {
+			"type": "integer",
+			"default": 0
+		}
+	},
+	"supports": {
+		"anchor": false,
+		"align": false,
+		"interactivity": true
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php",
+	"usesContext": ["postId"]
+}

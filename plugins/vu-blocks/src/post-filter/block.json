@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "vu/post-filter",
+	"title": "Post Filter",
+	"category": "vu-blocks",
+	"icon": "filter",
+	"description": "Block to output a post filter button.",
+	"keywords": ["post", "filter"],
+	"ancestor": ["core/query"],
+	"textdomain": "vu-blocks",
+	"attributes": {
+		"queryId": {
+			"type": "integer",
+			"default": 0
+		},
+		"query": {
+			"type": "object",
+			"default": {}
+		},
+		"selectedFilters": {
+			"type": "array",
+			"default": []
+		}
+	},
+	"supports": {
+		"anchor": false,
+		"align": false,
+		"interactivity": true
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php",
+	"style": "file:./style-index.css",
+	"usesContext": ["queryId", "query"]
+}

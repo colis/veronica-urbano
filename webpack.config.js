@@ -1,6 +1,7 @@
 /**
  * External dependencies
  */
+import DependencyExtractionWebpackPlugin from '@wordpress/dependency-extraction-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import _ from 'lodash';
 import path from 'path';
@@ -111,6 +112,10 @@ const entry = {
 	...blocksConfig.entry(),
 };
 
+// Remove specific view.js files from the scripts.
+// These will be built as JS modules later.
+delete entry['post-filter/view'];
+
 // Blocks Plugin Scripts configuration.
 const blocksPluginConfig = {
 	...blocksConfig,
@@ -129,5 +134,30 @@ const blocksPluginConfig = {
 	},
 };
 
+// Modules configuration.
+const modulesConfig = {
+	...blocksConfig,
+	entry: {
+		'post-filter/view': `${blocksPluginPath}/src/post-filter/view.js`,
+	},
+	output: {
+		module: true,
+		path: path.resolve(__dirname, `${blocksPluginPath}/dist/`),
+	},
+	experiments: { outputModule: true },
+	plugins: [
+		...defaultConfig.plugins.filter(
+			(plugin) =>
+				plugin.constructor.name !== 'DependencyExtractionWebpackPlugin'
+		),
+		new DependencyExtractionWebpackPlugin(),
+	],
+};
+
 // Process configurations.
-export default [themeConfig, corePluginConfig, blocksPluginConfig];
+export default [
+	themeConfig,
+	corePluginConfig,
+	blocksPluginConfig,
+	modulesConfig,
+];

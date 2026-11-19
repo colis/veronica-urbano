@@ -1,0 +1,7 @@
+/**
+ * Post Card Block Editor Styles
+ */
+
+.wp-block-vu-post-card a {
+	pointer-events: none;
+}

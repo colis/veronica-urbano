@@ -1,0 +1,53 @@
+/* ==========================================================================
+CARD
+========================================================================== */
+
+.c-card {
+	display: flex;
+	position: relative;
+	width: 100%;
+	overflow: clip;
+
+	.c-card__heading {
+		@mixin heading 3;
+	}
+}
+
+.c-card__link {
+	width: 100%;
+
+	&:hover,
+	&:focus-visible,
+	&:active {
+		&,
+		.c-card__heading {
+			text-decoration: none;
+		}
+	}
+
+	&:focus-visible {
+		@mixin focus-outline;
+		@mixin outline-offset;
+	}
+}
+
+.c-card__image {
+	width: 100%;
+
+	img {
+		@mixin fit-image;
+		width: 100%;
+	}
+}
+
+.c-card__status-tag.tag {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	margin: 0;
+}
+
+.c-card__content {
+	width: 100%;
+}

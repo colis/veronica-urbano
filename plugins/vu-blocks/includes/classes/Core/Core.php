@@ -102,4 +102,40 @@ class Core extends BaseAbstract {
 			wp_enqueue_script( 'recaptcha' );
 		}
 	}
+
+	/**
+	 * Register JS modules.
+	 *
+	 * @return void
+	 */
+	public function register_modules(): void {
+		$modules = [
+			'post-filter',
+		];
+
+		foreach ( $modules as $module ) {
+
+			// Check the block is present before enqueuing.
+			if ( ! has_block( "vu/$module" ) ) {
+				continue;
+			}
+
+			$module_file  = "dist/{$module}/view.mjs";
+			$module_path  = VU_BLOCKS_PATH . "dist/{$module}/view.mjs";
+			$asset_path   = VU_BLOCKS_PATH . "dist/{$module}/view.asset.php";
+			$module_asset = file_exists( $asset_path )
+				? require $asset_path
+				: [
+					'dependencies' => [],
+					'version'      => filemtime( $module_path ),
+				];
+
+			wp_enqueue_script_module(
+				"{$module}-block",
+				VU_BLOCKS_URL . $module_file,
+				$module_asset['dependencies'],
+				$module_asset['version'],
+			);
+		}
+	}
 }

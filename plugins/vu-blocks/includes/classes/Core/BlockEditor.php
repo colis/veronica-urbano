@@ -164,7 +164,6 @@ class BlockEditor extends BaseAbstract {
 			'core/post-content',
 			'core/post-date',
 			'core/post-excerpt',
-			'core/post-featured-image',
 			'core/post-navigation-link',
 			'core/post-terms',
 			'core/post-time-to-read',

@@ -9,6 +9,7 @@ namespace VUBlocks;
 
 use VUBlocks\Admin\IconPreview;
 use VUBlocks\Blocks\Blocks;
+use VUBlocks\Blocks\PostFilter\PostFilter;
 use VUBlocks\Blocks\Extensions\{
 	Button,
 	Cover,
@@ -62,13 +63,6 @@ class Plugin extends BaseAbstract {
 	 */
 	private function actions(): void {
 
-		// Load text domain.
-		add_action( 'init', [ $this->app->get( Core::class ), 'i18n' ] );
-
-		// Blocks.
-		add_action( 'init', [ $this->app->get( Blocks::class ), 'register_blocks' ] );
-		add_action( 'block_categories_all', [ $this->app->get( Blocks::class ), 'register_block_category' ] );
-
 		// Block Editor.
 		// Gutenberg Theme support.
 		add_action( 'after_setup_theme', [ $this->app->get( BlockEditor::class ), 'register_gutenberg_theme_support' ] );
@@ -79,15 +73,24 @@ class Plugin extends BaseAbstract {
 		// Register custom block pattern categories.
 		add_action( 'init', [ $this->app->get( BlockEditor::class ), 'register_block_pattern_categories' ] );
 
+		// Blocks.
+		add_action( 'init', [ $this->app->get( Blocks::class ), 'register_blocks' ] );
+		add_action( 'block_categories_all', [ $this->app->get( Blocks::class ), 'register_block_category' ] );
+
+		// Core.
+		add_action( 'init', [ $this->app->get( Core::class ), 'i18n' ] );
+		add_action( 'enqueue_block_editor_assets', [ $this->app->get( Core::class ), 'dequeue_core_block_theme_editor_styles' ], PHP_INT_MAX );
+		add_action( 'enqueue_block_assets', [ $this->app->get( Core::class ), 'register_scripts_styles' ] );
+		add_action( 'enqueue_block_assets', [ $this->app->get( Core::class ), 'register_modules' ] );
+
 		// Block Extensions.
 		add_action( 'enqueue_block_editor_assets', [ $this->app->get( Extensions::class ), 'register_extensions' ] );
 
 		// Post Blocks.
 		add_action( 'admin_enqueue_scripts', [ $this->app->get( IconPreview::class ), 'register_scripts' ] );
 
-		// Core.
-		add_action( 'enqueue_block_editor_assets', [ $this->app->get( Core::class ), 'dequeue_core_block_theme_editor_styles' ], PHP_INT_MAX );
-		add_action( 'enqueue_block_assets', [ $this->app->get( Core::class ), 'register_scripts_styles' ] );
+		// Post Filter block.
+		add_action( 'pre_get_posts', [ $this->app->get( PostFilter::class ), 'process_post_filter_url_params' ] );
 
 		do_action( 'vu_blocks_loaded' );
 	}
@@ -110,12 +113,14 @@ class Plugin extends BaseAbstract {
 		add_filter( 'register_wp_block_post_type_args', [ $this->app->get( BlockEditor::class ), 'wp_block_update_post_type_args' ], 10, 2 );
 		add_filter( 'register_taxonomy_args', [ $this->app->get( BlockEditor::class ), 'wp_pattern_category_update_taxonomy_args' ], 10, 2 );
 
+		// Post Filter block.
+		add_filter( 'query_loop_block_query_vars', [ $this->app->get( PostFilter::class ), 'filter_query_loop_block_query_vars' ], 10, 2 );
+
 		// Block Extensions.
 		// Button - order of filter execution is important.
 		add_filter( 'render_block_core/button', [ $this->app->get( Button::class ), 'core_button_wrap_label' ], 10, 2 );
 		add_filter( 'render_block_core/button', [ $this->app->get( Button::class ), 'core_button_maybe_insert_aria_label' ], 10, 2 );
 		add_filter( 'render_block_core/button', [ $this->app->get( Button::class ), 'core_button_placeholder_button' ], 10, 2 );
-		add_filter( 'render_block_core/button', [ $this->app->get( Button::class ), 'core_button_maybe_insert_dialog_modal' ], 10, 2 );
 		// Cover.
 		add_filter( 'render_block_core/cover', [ $this->app->get( Cover::class ), 'core_cover_insert_mobile_image' ], 10, 2 );
 		// Image.

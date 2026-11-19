@@ -24,11 +24,16 @@ POST TEMPLATE BLOCK
 	}
 
 	&.is-layout-grid.is-layout-grid {
-		gap: spacing(24);
+		grid-template-columns: 1fr;
+		gap: spacing(56) spacing(40);
+
+		&.columns-2 {
+			@media (--lg-up) {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
 
 		&.columns-3 {
-			grid-template-columns: 1fr;
-
 			@media (--md-up) {
 				grid-template-columns: repeat(2, 1fr);
 			}

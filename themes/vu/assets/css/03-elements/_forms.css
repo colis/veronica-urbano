@@ -305,7 +305,6 @@ input[type="radio"] {
 
 	&,
 	+ label {
-		@mixin body-lg;
 		cursor: pointer;
 	}
 }
