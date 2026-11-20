@@ -390,6 +390,11 @@
 					"name": "8px"
 				},
 				{
+					"size": "var:custom|spacings|12",
+					"slug": "15",
+					"name": "12px"
+				},
+				{
 					"size": "var:custom|spacings|16",
 					"slug": "20",
 					"name": "16px"
@@ -732,6 +737,11 @@
 							"slug": "gold",
 							"color": "var:custom|colors|brand|gold",
 							"name": "Gold"
+						},
+						{
+							"slug": "grey-3",
+							"color": "var:custom|colors|brand|grey-3",
+							"name": "Grey 3"
 						},
 						{
 							"slug": "grey-4",
@@ -1095,6 +1105,11 @@
 							"name": "Aubergine"
 						},
 						{
+							"slug": "grey-3",
+							"color": "var:custom|colors|brand|grey-4",
+							"name": "Grey 4"
+						},
+						{
 							"slug": "white",
 							"color": "var:custom|colors|white",
 							"name": "White"
@@ -1118,7 +1133,8 @@
 			"vu/grid": {
 				"spacing": {
 					"blockGap": true,
-					"margin": true
+					"margin": true,
+					"padding": true
 				}
 			},
 			"vu/ticker": {

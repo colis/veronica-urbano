@@ -22,6 +22,10 @@ Example usage:
 		&.has-white-color {
 			@mixin eyebrow-light;
 		}
+
+		> a {
+			text-decoration: none;
+		}
 	}
 
 	.pill,

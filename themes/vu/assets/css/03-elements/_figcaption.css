@@ -2,6 +2,11 @@
 FIGCAPTION
 ========================================================================== */
 
+.wp-element-caption {
+	@mixin eyebrow;
+	margin-top: spacing(10);
+}
+
 .aligncenter {
 	.wp-element-caption {
 		text-align: center;

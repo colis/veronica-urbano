@@ -38,6 +38,7 @@
 			"blockGap": {
 				"sides": ["horizontal", "vertical"]
 			},
+			"padding": ["top", "bottom"],
 			"margin": ["top", "bottom"]
 		}
 	},

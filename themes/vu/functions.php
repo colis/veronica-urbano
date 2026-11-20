@@ -8,8 +8,10 @@
  * @since 1.0.0
  */
 
+use VUCore\PostType\Project;
 use VUTheme\Core;
 use VUTheme\Enqueue;
+use VUTheme\TemplateTags;
 
 if ( ! function_exists( 'cc' ) ) {
 	return;
@@ -36,3 +38,5 @@ add_action( 'after_setup_theme', [ cc()->get( Enqueue::class ), 'vu_theme_editor
 add_action( 'wp_head', [ cc()->get( Enqueue::class ), 'vu_theme_importmap_polyfill' ], 1 );
 add_action( 'wp_head', [ cc()->get( Enqueue::class ), 'vu_theme_preload_requests' ], 1 );
 add_action( 'wp_head', [ cc()->get( Enqueue::class ), 'vu_theme_favicons' ], 1 );
+
+add_action( 'vu_theme_' . Project::NAME . '_single_footer', [ cc()->get( TemplateTags::class ), 'vu_theme_project_nav' ] );
