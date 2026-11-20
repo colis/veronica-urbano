@@ -74,8 +74,6 @@ class Enqueue {
 	 */
 	public function vu_theme_frontend_scripts(): void {
 
-		$post_id = get_the_ID();
-
 		// Theme scripts.
 		wp_register_script(
 			'vu-scripts',

@@ -46,6 +46,7 @@
 		@mixin pill;
 		display: flex;
 		align-items: center;
+		cursor: pointer;
 		font-size: font-size(12);
 		text-align: center;
 	}

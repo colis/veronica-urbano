@@ -142,6 +142,9 @@ const modulesConfig = {
 	},
 	output: {
 		module: true,
+		// Use .js so servers without an .mjs MIME mapping serve JavaScript.
+		filename: '[name].js',
+		chunkFilename: '[name].js?ver=[chunkhash]',
 		path: path.resolve(__dirname, `${blocksPluginPath}/dist/`),
 	},
 	experiments: { outputModule: true },

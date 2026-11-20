@@ -120,8 +120,8 @@ class Core extends BaseAbstract {
 				continue;
 			}
 
-			$module_file  = "dist/{$module}/view.mjs";
-			$module_path  = VU_BLOCKS_PATH . "dist/{$module}/view.mjs";
+			$module_file  = "dist/{$module}/view.js";
+			$module_path  = VU_BLOCKS_PATH . $module_file;
 			$asset_path   = VU_BLOCKS_PATH . "dist/{$module}/view.asset.php";
 			$module_asset = file_exists( $asset_path )
 				? require $asset_path
