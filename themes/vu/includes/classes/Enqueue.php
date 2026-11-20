@@ -187,4 +187,14 @@ class Enqueue {
 		<meta name="msapplication-config" content="<?php echo esc_url( VU_THEME_URL ); ?>favicon/browserconfig.xml">
 		<?php
 	}
+
+	/**
+	 * Enqueue Iubenda script.
+	 */
+	public function vu_iubenda_script() {
+		?>
+		<link rel="dns-prefetch" href="https://embeds.iubenda.com">
+		<script type="text/javascript" src="https://embeds.iubenda.com/widgets/61ffde8d-fa8a-44e2-bda1-7f18b502dabf.js"></script> <?php // phpcs:ignore ?>
+		<?php
+	}
 }

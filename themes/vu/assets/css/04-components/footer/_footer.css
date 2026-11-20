@@ -23,6 +23,15 @@ FOOTER
 	button {
 		@mixin reset-button;
 	}
+
+	.has-icon-trailing > a {
+		--icon-gap: spacing(4);
+		@mixin inline-icon;
+
+		&::after {
+			@mixin inline-icon-pseudo;
+		}
+	}
 }
 
 .c-site-footer__main {
@@ -86,18 +95,9 @@ FOOTER
 
 .c-site-footer__nav {
 	a {
+		--icon-size: rem(18px);
 		font-weight: font-weight(bold);
 		text-transform: uppercase;
-	}
-
-	.has-icon-trailing > a {
-		--icon-gap: spacing(4);
-		--icon-size: rem(18px);
-		@mixin inline-icon;
-
-		&::after {
-			@mixin inline-icon-pseudo;
-		}
 	}
 }
 
@@ -150,6 +150,7 @@ FOOTER
 	}
 
 	a {
+		--icon-size: rem(14px);
 		text-decoration: underline !important;
 
 		&:hover,
