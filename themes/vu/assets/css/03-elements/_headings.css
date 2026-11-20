@@ -52,6 +52,7 @@ HEADINGS
 	}
 
 	:where(h1, h2, h3, h4, h5, h6) {
+		overflow-wrap: break-word;
 		&:has(+ .wp-block-buttons) {
 			margin-bottom: fluid(0.375rem, 0.75rem); /* 6px > 12px */
 		}
