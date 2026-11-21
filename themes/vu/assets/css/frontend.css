@@ -50,6 +50,7 @@ FRONTEND STYLES
 @import "04-components/_layout.css";
 @import "04-components/_loader.css";
 @import "04-components/_pagination.css";
+@import "04-components/_polaroid.css";
 @import "04-components/_project.css";
 @import "04-components/_skeletons.css";
 

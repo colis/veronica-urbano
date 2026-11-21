@@ -18,6 +18,7 @@ use VUBlocks\Blocks\Extensions\{
 	ListBlock,
 	MediaText,
 	Paragraph,
+	Polaroid,
 	Separator,
 };
 use VUBlocks\Core\{BlockEditor, Core};
@@ -84,6 +85,7 @@ class Plugin extends BaseAbstract {
 		add_action( 'enqueue_block_assets', [ $this->app->get( Core::class ), 'register_modules' ] );
 
 		// Block Extensions.
+		add_action( 'wp_footer', [ $this->app->get( Polaroid::class ), 'render_polaroid_dialog' ], 5 );
 		add_action( 'enqueue_block_editor_assets', [ $this->app->get( Extensions::class ), 'register_extensions' ] );
 
 		// Post Blocks.
@@ -129,6 +131,7 @@ class Plugin extends BaseAbstract {
 		add_filter( 'render_block_core/list', [ $this->app->get( ListBlock::class ), 'core_list_update_markup' ] );
 		// Paragraph.
 		add_filter( 'render_block_core/paragraph', [ $this->app->get( Paragraph::class ), 'core_paragraph_maybe_wrap_text' ], 10, 2 );
+		add_filter( 'render_block_core/paragraph', [ $this->app->get( Polaroid::class ), 'core_paragraph_maybe_render_polaroid' ], 20 );
 		// Media & Text.
 		add_filter( 'render_block_core/media-text', [ $this->app->get( MediaText::class ), 'core_media_text_fix_image_sizes' ] );
 		add_filter( 'render_block_core/media-text', [ $this->app->get( MediaText::class ), 'core_media_text_insert_mobile_image' ], 10, 2 );

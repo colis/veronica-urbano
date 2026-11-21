@@ -42,6 +42,7 @@ ADMIN STYLES
 ------------------------------------*/
 
 @import "04-components/_cards.css";
+@import "04-components/_polaroid.css";
 @import "04-components/_pagination.css";
 
 /*------------------------------------

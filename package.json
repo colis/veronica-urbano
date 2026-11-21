@@ -56,6 +56,7 @@
 		"@wordpress/rich-text": "^8.1.0",
 		"@wordpress/scripts": "^37.1",
 		"@wordpress/server-side-render": "^7.2.0",
+		"a11y-dialog": "^8.1.5",
 		"autoprefixer": "^10.6.2",
 		"cssnano": "^9.9.0",
 		"husky": "^9.1.7",

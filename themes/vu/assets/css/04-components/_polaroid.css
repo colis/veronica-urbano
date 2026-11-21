@@ -1,0 +1,126 @@
+/* ==========================================================================
+POLAROID
+========================================================================== */
+
+.c-polaroid__trigger {
+	display: inline;
+	cursor: pointer;
+	border: 0;
+	border-radius: 0;
+	background: transparent;
+	padding: 0;
+	color: inherit;
+	font: inherit;
+	text-decoration: underline solid spacing(3) color(brand--raspberry);
+	text-underline-offset: 0.2em;
+
+	&:hover {
+		background: color(brand--raspberry-dark);
+		color: color(white);
+	}
+
+	&:disabled {
+		cursor: inherit;
+		text-decoration: none;
+	}
+
+	&:focus-visible {
+		@mixin focus-outline;
+	}
+
+	.editor-styles-wrapper & {
+		pointer-events: none;
+		user-select: text;
+	}
+}
+
+.c-polaroid {
+	display: flex;
+	position: fixed;
+	z-index: 1001;
+	inset: 0;
+
+	&[aria-hidden="true"] {
+		display: none;
+	}
+
+	figure {
+		@mixin box-shadow;
+		transform: rotate(-3deg);
+		background-color: color(white);
+		padding: spacing(12);
+
+		&[hidden] {
+			display: none;
+		}
+	}
+
+	img {
+		background-color: color(brand--paper);
+	}
+
+	figcaption {
+		@mixin eyebrow;
+		margin-top: spacing(12);
+	}
+}
+
+.c-polaroid__overlay {
+	position: absolute;
+	inset: 0;
+	background-color: color-mix(in srgb, color(white) 75%, transparent);
+}
+
+.c-polaroid__content {
+	margin: auto;
+	padding: spacing(24) spacing(16);
+	width: min(rem(420px), calc(100% - spacing(32)));
+	max-height: calc(100dvh - spacing(32));
+	color: color(brand--aubergine);
+}
+
+.c-polaroid__close {
+	display: inline-flex;
+	position: absolute;
+	top: spacing(12);
+	right: spacing(12);
+	transform: rotate(-3deg);
+	z-index: 1;
+	cursor: pointer;
+	border: 0;
+	background-color: color(brand--aubergine);
+	width: spacing(32);
+	height: spacing(32);
+	color: color(white);
+
+	&::before,
+	&::after {
+		position: absolute;
+		top: rem(15px);
+		left: spacing(4);
+		background: currentcolor;
+		width: spacing(24);
+		height: spacing(3);
+		content: "";
+	}
+
+	&::before {
+		transform: rotate(45deg);
+	}
+	&::after {
+		transform: rotate(-45deg);
+	}
+
+	&:focus {
+		@mixin focus-outline;
+		outline-color: color(brand--raspberry);
+	}
+}
+
+html:has(.c-polaroid) {
+	scrollbar-gutter: stable;
+
+	&:has(.c-polaroid:not([aria-hidden="true"])) {
+		overflow: hidden;
+	}
+}

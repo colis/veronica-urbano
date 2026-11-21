@@ -138,6 +138,7 @@ const blocksPluginConfig = {
 const modulesConfig = {
 	...blocksConfig,
 	entry: {
+		'_extensions/polaroid/view': `${blocksPluginPath}/src/_extensions/polaroid/view.js`,
 		'post-filter/view': `${blocksPluginPath}/src/post-filter/view.js`,
 	},
 	output: {
